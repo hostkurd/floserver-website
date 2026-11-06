@@ -49,7 +49,7 @@ const year = new Date().getFullYear();
       </nav>
     </div>
   </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <slot />
   </main>
   <footer class="site-footer">
@@ -78,6 +78,7 @@ const year = new Date().getFullYear();
         e.preventDefault();
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        document.getElementById('main')?.focus({ preventScroll: true });
       });
     }
   </script>

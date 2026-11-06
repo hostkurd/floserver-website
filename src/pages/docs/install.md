@@ -2,7 +2,7 @@
 layout: ../../layouts/Docs.astro
 title: Install FloServer
 description: 'Download and install FloServer on Windows 10 or 11, without admin rights.'
-lead: 'FloServer installs for your Windows user in a minute or two, without admin rights.'
+lead: 'FloServer installs for your Windows user, without admin rights.'
 ---
 
 ## What you need {#requirements}

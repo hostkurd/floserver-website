@@ -17,6 +17,6 @@ For PHP and MariaDB, **default for new projects** can be a fixed version or **Ne
 
 ## Checking for new versions {#check}
 
-The page says which list of versions it has and how long it's good for. Nothing is checked online until you click **Check for updates**. The list is signed, and every download is checked before it's used.
+The page says which list of versions it has and how long it's good for. Click **Check for updates** to fetch the newest list now. The list is signed, and every download is checked before it's used.
 
 From the terminal: `flo runtimes`, `flo install php 8.5`, `flo uninstall php 8.5.12`.

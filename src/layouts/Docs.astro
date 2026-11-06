@@ -60,8 +60,8 @@ const section = page && page.href !== '/docs/' ? page.group : undefined;
       </div>
     </article>
 
+    {toc.length > 1 ? (
     <aside class="docs-toc" aria-label="On this page">
-      {toc.length > 1 && (
         <div class="sticky">
           <p class="aside-title">On this page</p>
           <nav>
@@ -69,8 +69,8 @@ const section = page && page.href !== '/docs/' ? page.group : undefined;
           </nav>
           <a class="toc-top" href="#top">Back to top</a>
         </div>
-      )}
     </aside>
+    ) : <div class="docs-toc" aria-hidden="true"></div>}
   </div>
 </Base>
 
@@ -81,19 +81,37 @@ const section = page && page.href !== '/docs/' ? page.group : undefined;
     .map((a) => document.getElementById(a.dataset.toc ?? ''))
     .filter((el): el is HTMLElement => el !== null);
   if (targets.length > 0) {
+    let clicked: HTMLElement | null = null;
     const mark = () => {
       const line = 120;
       let current = targets[0];
       for (const t of targets) {
         if (t.getBoundingClientRect().top - line <= 0) current = t;
       }
+      // At the bottom of the page the last sections can't reach the line:
+      // keep the one that was clicked, or else mark the last.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        current = clicked ?? targets[targets.length - 1];
+      }
       for (const a of links) {
         if (a.dataset.toc === current.id) a.setAttribute('aria-current', 'location');
         else a.removeAttribute('aria-current');
       }
     };
+    const fromHash = () => {
+      clicked = targets.find((t) => '#' + t.id === decodeURIComponent(location.hash)) ?? null;
+      mark();
+    };
+    window.addEventListener('hashchange', fromHash);
     document.addEventListener('scroll', mark, { passive: true });
-    mark();
+    fromHash();
+  }
+
+  // The left menu scrolls by itself: show the current page in it.
+  const menu = document.querySelector<HTMLElement>('.docs-side .docs-menu');
+  const cur = menu?.querySelector<HTMLElement>('a[aria-current="page"]');
+  if (menu && cur && menu.scrollHeight > menu.clientHeight) {
+    menu.scrollTop = Math.max(0, cur.offsetTop - menu.offsetTop - menu.clientHeight / 2);
   }
 
   // Copy buttons on code blocks.
