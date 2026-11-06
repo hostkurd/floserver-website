@@ -15,50 +15,47 @@ export const company = {
 
 export const siteUrl = 'https://floserver.org';
 
-// The docs menu. `href` without a hash is a page; a hash points into one.
+// The docs menu: one entry per page, in reading order. Prev/next links and
+// the menu both come from this list, so a new docs page is added here too.
 export const docsNav = [
   {
     title: 'Getting started',
     items: [
       { title: 'Overview', href: '/docs/' },
-      { title: 'Install and first start', href: '/docs/install/' },
-      { title: 'First start', href: '/docs/install/#first-start' },
-      { title: 'Create a project', href: '/docs/install/#project' },
+      { title: 'Install FloServer', href: '/docs/install/' },
+      { title: 'First start', href: '/docs/first-start/' },
+      { title: 'Create a project', href: '/docs/create-project/' },
     ],
   },
   {
     title: 'Using the app',
     items: [
       { title: 'The projects window', href: '/docs/window/' },
-      { title: 'Right-click menu', href: '/docs/window/#menu' },
-      { title: 'Project panel', href: '/docs/window/#panel' },
-      { title: 'Shared sites (www)', href: '/docs/window/#shared' },
-      { title: 'Databases and phpMyAdmin', href: '/docs/window/#database' },
+      { title: 'Project panel', href: '/docs/project-panel/' },
+      { title: 'Right-click menu', href: '/docs/project-menu/' },
+      { title: 'Databases and phpMyAdmin', href: '/docs/databases/' },
+      { title: 'Shared sites (www)', href: '/docs/shared-sites/' },
       { title: 'Backup and restore', href: '/docs/backup/' },
-      { title: 'Rename a project', href: '/docs/backup/#rename' },
+      { title: 'Rename a project', href: '/docs/rename/' },
     ],
   },
   {
     title: 'Settings',
     items: [
       { title: 'All settings', href: '/docs/settings/' },
-      { title: 'Runtimes', href: '/docs/settings/#runtimes' },
-      { title: 'PHP', href: '/docs/settings/#php' },
-      { title: 'Apache', href: '/docs/settings/#apache' },
-      { title: 'Folders', href: '/docs/settings/#folders' },
-      { title: 'General', href: '/docs/settings/#general' },
-      { title: 'Shared sites', href: '/docs/settings/#shared' },
-      { title: 'Ports & HTTPS', href: '/docs/settings/#ports' },
+      { title: 'General', href: '/docs/settings/general/' },
+      { title: 'Runtimes', href: '/docs/settings/runtimes/' },
+      { title: 'PHP', href: '/docs/settings/php/' },
+      { title: 'Ports & HTTPS', href: '/docs/settings/ports-https/' },
+      { title: 'Apache', href: '/docs/settings/apache/' },
+      { title: 'Folders', href: '/docs/settings/folders/' },
     ],
   },
   {
-    title: 'Projects',
-    items: [{ title: 'floserver.json', href: '/docs/floserver-json/' }],
-  },
-  {
-    title: 'Command line',
+    title: 'Projects and terminal',
     items: [
-      { title: 'Terminal commands', href: '/docs/flo/#shims' },
+      { title: 'floserver.json', href: '/docs/floserver-json/' },
+      { title: 'Terminal commands', href: '/docs/terminal/' },
       { title: 'The flo command', href: '/docs/flo/' },
     ],
   },
@@ -70,3 +67,5 @@ export const docsNav = [
     ],
   },
 ];
+
+export const docsPages = docsNav.flatMap((g) => g.items.map((i) => ({ ...i, group: g.title })));

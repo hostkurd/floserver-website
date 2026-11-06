@@ -1,0 +1,77 @@
+---
+// Search over the docs, with Pagefind's index (built after `astro build`,
+// served from /pagefind/). Nothing leaves the site.
+interface Props { mobile?: boolean }
+const { mobile = false } = Astro.props;
+const id = mobile ? 'docs-search-m' : 'docs-search';
+---
+<div class="search" data-search>
+  <label class="visually-hidden" for={id}>Search the docs</label>
+  <div class="search-box">
+    <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input id={id} type="search" placeholder="Search the docs" autocomplete="off" spellcheck="false" aria-controls={`${id}-results`} aria-describedby={`${id}-status`}>
+    {!mobile && <kbd aria-hidden="true">/</kbd>}
+  </div>
+  <div class="search-results" id={`${id}-results`} role="region" aria-label="Search results" hidden></div>
+  <p class="visually-hidden" id={`${id}-status`} role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  type Result = { url: string; excerpt: string; meta: { title?: string } };
+  type Pagefind = { search: (q: string) => Promise<{ results: { data: () => Promise<Result> }[] }> };
+  let loading: Promise<Pagefind | null> | null = null;
+  const load = () => {
+    loading ??= import(/* @vite-ignore */ `${location.origin}/pagefind/pagefind.js`).catch(() => null) as Promise<Pagefind | null>;
+    return loading;
+  };
+
+  for (const box of document.querySelectorAll<HTMLElement>('[data-search]')) {
+    const input = box.querySelector('input')!;
+    const out = box.querySelector<HTMLElement>('.search-results')!;
+    const status = box.querySelector<HTMLElement>('[role="status"]')!;
+    let seq = 0;
+    const close = () => { out.hidden = true; status.textContent = ''; };
+    const show = (html: string, say: string) => { out.innerHTML = html; out.hidden = false; status.textContent = say; };
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+    input.addEventListener('focus', load, { once: true });
+    input.addEventListener('input', async () => {
+      const q = input.value.trim();
+      const mine = ++seq;
+      if (q.length < 2) { close(); return; }
+      const pf = await load();
+      if (mine !== seq) return;
+      if (!pf) { show('<p class="search-note">Search works on the published site.</p>', 'Search works on the published site.'); return; }
+      const res = await pf.search(q);
+      const items = await Promise.all(res.results.slice(0, 8).map((r) => r.data()));
+      if (mine !== seq) return;
+      if (items.length === 0) { show(`<p class="search-note">Nothing found for “${esc(q)}”.</p>`, 'Nothing found.'); return; }
+      // Pagefind's excerpts are our own page text with <mark> around the match.
+      show('<ul>' + items.map((r) =>
+        `<li><a href="${esc(r.url)}"><b>${esc(r.meta.title ?? r.url)}</b><span>${r.excerpt}</span></a></li>`).join('') + '</ul>',
+        `${items.length} result${items.length === 1 ? '' : 's'}. Press the down arrow to go to them.`);
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { input.value = ''; close(); }
+      if (e.key === 'ArrowDown') { out.querySelector<HTMLAnchorElement>('a')?.focus(); e.preventDefault(); }
+      if (e.key === 'Enter') { const first = out.querySelector<HTMLAnchorElement>('a'); if (first && !out.hidden) { location.href = first.href; e.preventDefault(); } }
+    });
+    out.addEventListener('keydown', (e) => {
+      const links = [...out.querySelectorAll<HTMLAnchorElement>('a')];
+      const i = links.indexOf(document.activeElement as HTMLAnchorElement);
+      if (e.key === 'ArrowDown' && i < links.length - 1) { links[i + 1].focus(); e.preventDefault(); }
+      if (e.key === 'ArrowUp') { (i > 0 ? links[i - 1] : input).focus(); e.preventDefault(); }
+      if (e.key === 'Escape') { input.focus(); close(); }
+    });
+    document.addEventListener('click', (e) => { if (!box.contains(e.target as Node)) close(); });
+    box.addEventListener('focusout', (e) => { if (!box.contains(e.relatedTarget as Node | null)) close(); });
+  }
+
+  // "/" jumps to the search box, as on most docs sites.
+  document.addEventListener('keydown', (e) => {
+    const t = e.target as HTMLElement;
+    if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey || t.closest('input, textarea, [contenteditable]')) return;
+    const input = document.getElementById('docs-search') as HTMLInputElement | null;
+    if (input && input.offsetParent !== null) { e.preventDefault(); input.focus(); }
+  });
+</script>

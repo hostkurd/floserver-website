@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { releases } from '../../data/news.js';
+import { release as current } from '../../data/site.js';
+
+export function getStaticPaths() {
+  return releases.map((r) => ({ params: { version: r.version }, props: { r } }));
+}
+const { r } = Astro.props;
+const isCurrent = r.version === current.version;
+---
+<Base title={`FloServer ${r.version}`} description={`What's new in FloServer ${r.version}: ${r.summary}`} current="news">
+  <div class="wrap news prose">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/news/">What's new</a> › {r.version}</nav>
+    <h1>FloServer {r.version}</h1>
+    <p class="meta"><time datetime={r.iso}>{r.date}</time>{isCurrent && <span class="pill-small">Latest</span>}</p>
+    <p class="leadp">{r.summary}</p>
+    {r.sections.map((s) => (
+      <>
+        <h2>{s.title}</h2>
+        <ul>{s.items.map((i) => <li set:html={i}></li>)}</ul>
+      </>
+    ))}
+    {isCurrent && <p style="margin-top:32px"><a class="btn btn-primary btn-md" href="/download/">Download FloServer {r.version}</a></p>}
+  </div>
+</Base>

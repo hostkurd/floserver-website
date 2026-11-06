@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/Docs.astro
 title: floserver.json
-section: Projects
 description: 'The keys a FloServer project''s floserver.json can hold, with examples.'
 lead: 'Each project keeps its settings in a small <code>floserver.json</code> in its folder. Commit it, and the next person who opens the folder gets the same setup.'
 ---

@@ -30,7 +30,7 @@ const fileFor = (path) => {
 
 const problems = [];
 for (const page of pages) {
-  const html = readFileSync(page, 'utf8');
+  const html = readFileSync(page, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
   const from = '/' + relative(dist, page).replace(/index\.html$/, '');
   for (const [, attr, url] of html.matchAll(/\s(href|src)="([^"]+)"/g)) {
     if (/^(https?:|mailto:|data:)/.test(url)) continue;

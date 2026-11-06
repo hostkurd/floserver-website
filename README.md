@@ -11,7 +11,7 @@ Needs Node.js 22 (see `.node-version`).
 ```
 npm install
 npm run dev          # http://localhost:4321, reloads as you edit
-npm run build        # the finished site, in dist/
+npm run build        # the finished site in dist/, then the search index (Pagefind)
 npm run check-links  # after a build: every internal link and #anchor must exist
 ```
 
@@ -20,8 +20,10 @@ npm run check-links  # after a build: every internal link and #anchor must exist
 | Path | What it is |
 | --- | --- |
 | `src/pages/` | One file per page: `index.astro` (home), `download.astro`, `privacy.astro`, `licence.astro`, `404.astro` |
-| `src/pages/docs/*.md` | The docs, in Markdown. `## Heading {#id}` gives a heading a fixed id |
+| `src/pages/docs/**/*.md` | The docs, one topic per page, in Markdown. `## Heading {#id}` gives a heading a fixed id. A new page also goes in `docsNav` (menu, and the Previous/Next order) |
+| `src/pages/news/`, `src/data/news.js` | What's new: one entry per release in `news.js` gives `/news/<version>/` |
 | `src/data/site.js` | The current release (version, date, setup link, size), the company details and the docs menu |
+| `src/components/DocsSearch.astro` | Docs search, over the Pagefind index in `dist/pagefind/` (only after `npm run build`, not in `npm run dev`) |
 | `src/data/eula.json` | The licence text, made from the installer's `License.rtf` (below) |
 | `src/layouts/` | `Base.astro` (header and footer) and `Docs.astro` (docs menu and "On this page") |
 | `src/styles/site.css` | All styles |
@@ -31,8 +33,9 @@ npm run check-links  # after a build: every internal link and #anchor must exist
 ## A new FloServer release
 
 1. In `src/data/site.js`, change `release` (version, date, `setupUrl`, `setupFile`, size).
-2. In `public/_redirects`, point `/download/latest` at the new setup.
-3. If the licence changed, run the script below.
+2. Add its notes at the top of `src/data/news.js`. The app's "What's new" link can point to `https://floserver.org/news/<version>/`.
+3. In `public/_redirects`, point `/download/latest` at the new setup.
+4. If the licence changed, run the script below.
 
 ## The licence text
 
