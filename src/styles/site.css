@@ -13,6 +13,7 @@
   --font: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --mono: 'Cascadia Mono', Consolas, 'SFMono-Regular', Menlo, monospace;
   --header-h: 69px;
+  --site-width: 1360px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -29,8 +30,7 @@ main:focus { outline: none; }
 .skip { position: absolute; left: 12px; top: -48px; background: #fff; padding: 8px 14px; border-radius: 6px; z-index: 10; }
 .skip:focus { top: 12px; }
 
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-.wrap-wide { max-width: 1360px; }
+.wrap { max-width: var(--site-width); margin: 0 auto; padding: 0 32px; }
 @media (max-width: 600px) { .wrap { padding: 0 20px; } }
 
 /* Header */
@@ -178,9 +178,11 @@ pre.code .c { color: #8A8A8A; }
 .box.warn p { color: #4A3A12; }
 
 /* Article pages (privacy, licence, docs) */
-.page { display: flex; flex-wrap: wrap; gap: 48px 64px; padding-top: 72px; padding-bottom: 96px; }
-.page > aside { flex: 1 1 220px; max-width: 280px; font-size: 14px; }
-.page > article { flex: 999 1 560px; min-width: 0; max-width: 780px; }
+.page { display: flex; flex-wrap: wrap; gap: 48px; padding-top: 72px; padding-bottom: 96px; }
+.page > aside .aside-links { position: sticky; top: calc(var(--header-h) + 24px); }
+.page > aside { flex: 0 0 240px; font-size: 14px; }
+.page > article { flex: 1 1 560px; min-width: 0; }
+.page .prose p, .page .prose li, .news .prose p, .news .prose li { max-width: 78ch; }
 .aside-title { margin: 0 0 10px; font-weight: 700; color: #6B6B6B; text-transform: uppercase; letter-spacing: .07em; font-size: 12px; }
 .aside-links { display: flex; flex-direction: column; gap: 8px; }
 .aside-links a { color: #3B3B3B; text-decoration: none; }
@@ -217,7 +219,7 @@ pre.code .c { color: #8A8A8A; }
 .note svg { flex: none; margin-top: 3px; }
 
 /* Docs */
-.docs { display: grid; grid-template-columns: 220px minmax(0, 1fr) 180px; gap: 40px; padding-top: 32px; padding-bottom: 96px; }
+.docs { display: grid; grid-template-columns: 240px minmax(0, 1fr) 200px; gap: 48px; padding-top: 32px; padding-bottom: 96px; }
 .docs .sticky { position: sticky; top: calc(var(--header-h) + 20px); max-height: calc(100vh - var(--header-h) - 40px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .docs-side .sticky { display: flex; flex-direction: column; overflow: visible; padding-right: 0; }
 .docs-side .docs-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 0 6px 12px 0; margin-top: 6px; }
@@ -227,7 +229,8 @@ pre.code .c { color: #8A8A8A; }
 .docs-menu a, .docs-mobile-menu a { display: block; color: #3B3B3B; text-decoration: none; font-size: 14.5px; line-height: 1.35; padding: 7px 12px; border-radius: 6px; }
 .docs-menu a:hover, .docs-mobile-menu a:hover { background: #F2F6FA; color: var(--accent); }
 .docs-menu a[aria-current="page"], .docs-mobile-menu a[aria-current="page"] { background: #E8F1FB; color: var(--accent-dark); font-weight: 600; }
-.docs-main { min-width: 0; max-width: 780px; }
+.docs-main { min-width: 0; }
+.docs-main > p, .docs-main > ul, .docs-main > ol { max-width: 78ch; }
 .docs-toc { font-size: 13.5px; }
 .docs-toc li a { display: block; color: var(--muted); text-decoration: none; padding: 5px 0 5px 12px; border-left: 2px solid #E8E8E8; line-height: 1.4; }
 .docs-toc li.sub a { padding-left: 24px; font-size: 13px; }
@@ -257,7 +260,7 @@ pre.code .c { color: #8A8A8A; }
 .docs-foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ECECEC; font-size: 14.5px; }
 .docs-foot span { color: #6B6B6B; }
 @media (max-width: 1180px) {
-  .docs { grid-template-columns: 220px minmax(0, 1fr); }
+  .docs { grid-template-columns: 240px minmax(0, 1fr); }
   .docs-toc { display: none; }
 }
 @media (max-width: 860px) {
@@ -322,7 +325,7 @@ ol.legend .n { flex: none; width: 24px; height: 24px; border-radius: 12px; backg
 .notfound h1 { font-size: 44px; margin: 0 0 12px; }
 
 /* What's new */
-.news { max-width: 860px; padding-top: 64px; padding-bottom: 96px; }
+.news { padding-top: 64px; padding-bottom: 96px; }
 .news h1 { margin: 0; font-size: 44px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
 .news .leadp { margin-top: 14px; font-size: 19px; color: var(--body); }
 .news-list { list-style: none; margin: 36px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
@@ -345,3 +348,8 @@ ol.legend .n { flex: none; width: 24px; height: 24px; border-radius: 12px; backg
 .shots img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 14px 36px rgba(3, 50, 90, 0.14); }
 .shots figcaption { margin-top: 12px; font-size: 15px; color: var(--muted); }
 .shots figcaption b { color: var(--text); }
+
+@media (max-width: 860px) {
+  .page > aside { flex: 1 1 100%; }
+  .page > aside .aside-links { position: static; }
+}
