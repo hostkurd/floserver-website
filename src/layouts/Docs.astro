@@ -13,8 +13,8 @@ const next = index >= 0 && index < docsPages.length - 1 ? docsPages[index + 1] :
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const section = page && page.href !== '/docs/' ? page.group : undefined;
 ---
-<Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs" wide>
-  <div class="wrap wrap-wide docs">
+<Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs">
+  <div class="wrap docs">
     <aside class="docs-side" aria-label="Docs">
       <div class="sticky">
         <DocsSearch />
