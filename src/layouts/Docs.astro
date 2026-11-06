@@ -1,42 +1,126 @@
 ---
 import Base from './Base.astro';
-import { docsNav, release, company } from '../data/site.js';
+import DocsSearch from '../components/DocsSearch.astro';
+import { docsNav, docsPages, release, company } from '../data/site.js';
 
 const { frontmatter, headings = [] } = Astro.props;
-const { title, description, section = 'Docs', lead } = frontmatter;
+const { title, description, lead } = frontmatter;
 const here = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
-// Exactly one menu entry is the current page: the first whose href is this page with no hash.
-const currentHref = docsNav.flatMap((g) => g.items).find((i) => i.href === here)?.href;
-const toc = headings.filter((h) => h.depth === 2);
+const index = docsPages.findIndex((p) => p.href === here);
+const page = docsPages[index];
+const prev = index > 0 ? docsPages[index - 1] : undefined;
+const next = index >= 0 && index < docsPages.length - 1 ? docsPages[index + 1] : undefined;
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const section = page && page.href !== '/docs/' ? page.group : undefined;
 ---
 <Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs" wide>
   <div class="wrap wrap-wide docs">
-    <article class="docs-main prose">
-      <p class="crumb">{section === 'Docs' ? 'Docs' : `Docs › ${section}`}</p>
-      <h1>{title}</h1>
+    <aside class="docs-side" aria-label="Docs">
+      <div class="sticky">
+        <DocsSearch />
+        <nav class="docs-menu" aria-label="Docs pages">
+          {docsNav.map((g) => (
+            <div class="group">
+              <p>{g.title}</p>
+              <ul>{g.items.map((i) => <li><a href={i.href} aria-current={i.href === here ? 'page' : undefined}>{i.title}</a></li>)}</ul>
+            </div>
+          ))}
+        </nav>
+      </div>
+    </aside>
+
+    <article class="docs-main prose" data-pagefind-body>
+      <details class="docs-mobile-menu" data-pagefind-ignore>
+        <summary>Docs menu{page && <span> · {page.title}</span>}</summary>
+        <DocsSearch mobile />
+        <nav aria-label="Docs pages">
+          {docsNav.map((g) => (
+            <div class="group">
+              <p>{g.title}</p>
+              <ul>{g.items.map((i) => <li><a href={i.href} aria-current={i.href === here ? 'page' : undefined}>{i.title}</a></li>)}</ul>
+            </div>
+          ))}
+        </nav>
+      </details>
+      <nav class="crumb" aria-label="Breadcrumb" data-pagefind-ignore>
+        <a href="/docs/">Docs</a>{section && <span aria-hidden="true"> › </span>}{section && <span>{section}</span>}
+      </nav>
+      <h1 data-pagefind-meta="title">{title}</h1>
       {lead && <p class="leadp" set:html={lead}></p>}
       <slot />
-      <div class="docs-foot">
+      {(prev || next) && (
+        <nav class="pager" aria-label="Previous and next page" data-pagefind-ignore>
+          {prev ? <a class="prev" href={prev.href} rel="prev"><span>Previous</span><b>{prev.title}</b></a> : <span></span>}
+          {next ? <a class="next" href={next.href} rel="next"><span>Next</span><b>{next.title}</b></a> : <span></span>}
+        </nav>
+      )}
+      <div class="docs-foot" data-pagefind-ignore>
         <span>Docs for FloServer {release.version}</span>
-        <a href={`mailto:${company.email}?subject=${encodeURIComponent('Docs: ' + title)}`}>Something wrong here? Email {company.email}</a>
+        <a href={`mailto:${company.email}?subject=${encodeURIComponent('Docs: ' + title)}`}>Something wrong on this page? Email us</a>
       </div>
     </article>
-    <aside class="docs-side">
-      <h2 class="menu-title">Docs menu</h2>
-      <nav aria-label="Docs">
-          {docsNav.map((g) => (
-            <>
-              <p>{g.title}</p>
-              {g.items.map((i) => <a href={i.href} aria-current={i.href === currentHref ? 'page' : undefined}>{i.title}</a>)}
-            </>
-          ))}
-      </nav>
+
+    <aside class="docs-toc" aria-label="On this page">
+      {toc.length > 1 && (
+        <div class="sticky">
+          <p class="aside-title">On this page</p>
+          <nav>
+            <ul>{toc.map((h) => <li class={h.depth === 3 ? 'sub' : undefined}><a href={`#${h.slug}`} data-toc={h.slug}>{h.text}</a></li>)}</ul>
+          </nav>
+          <a class="toc-top" href="#top">Back to top</a>
+        </div>
+      )}
     </aside>
-    {toc.length > 1 && (
-      <aside class="docs-toc">
-        <p class="aside-title">On this page</p>
-        <nav aria-label="On this page">{toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}</nav>
-      </aside>
-    )}
   </div>
 </Base>
+
+<script>
+  // "On this page": mark the section being read.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.docs-toc a[data-toc]')];
+  const targets = links
+    .map((a) => document.getElementById(a.dataset.toc ?? ''))
+    .filter((el): el is HTMLElement => el !== null);
+  if (targets.length > 0) {
+    const mark = () => {
+      const line = 120;
+      let current = targets[0];
+      for (const t of targets) {
+        if (t.getBoundingClientRect().top - line <= 0) current = t;
+      }
+      for (const a of links) {
+        if (a.dataset.toc === current.id) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      }
+    };
+    document.addEventListener('scroll', mark, { passive: true });
+    mark();
+  }
+
+  // Copy buttons on code blocks.
+  for (const pre of document.querySelectorAll<HTMLPreElement>('.prose pre')) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'copy';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', 'Copy code');
+    button.addEventListener('click', async () => {
+      const text = (pre.querySelector('code') ?? pre).textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text.replace(/\n$/, ''));
+        button.textContent = 'Copied';
+      } catch {
+        button.textContent = 'Press Ctrl+C';
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        const sel = window.getSelection();
+        sel?.removeAllRanges();
+        sel?.addRange(range);
+      }
+      setTimeout(() => (button.textContent = 'Copy'), 1800);
+    });
+    const box = document.createElement('div');
+    box.className = 'code-box';
+    pre.replaceWith(box);
+    box.append(pre, button);
+  }
+</script>

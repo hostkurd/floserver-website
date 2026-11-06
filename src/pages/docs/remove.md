@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/Docs.astro
 title: Remove FloServer
-section: Help
 description: 'How to uninstall FloServer, what is always removed and what you choose to keep.'
 lead: 'From <strong>Settings → General → Remove FloServer…</strong>, or from Windows Settings → Apps.'
 ---

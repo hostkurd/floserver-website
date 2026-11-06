@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { releases } from '../../data/news.js';
+---
+<Base title="What's new" description="Release notes for every FloServer version." current="news">
+  <div class="wrap news">
+    <h1>What's new</h1>
+    <p class="leadp">Release notes for every FloServer version, newest first.</p>
+    <ol class="news-list">
+      {releases.map((r) => (
+        <li>
+          <a href={`/news/${r.version}/`}>
+            <span class="news-v">FloServer {r.version}</span>
+            <time datetime={r.iso}>{r.date}</time>
+            <span class="news-s">{r.summary}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>

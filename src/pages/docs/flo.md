@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/Docs.astro
 title: The flo command
-section: Command line
 description: 'Everything FloServer''s window does, from a terminal, with the flo command.'
 lead: 'Everything the window does, from a terminal. <code>flo</code> and <code>floserver</code> are the same program.'
 ---
@@ -24,4 +23,4 @@ Run `flo help` to see the list in your terminal.
 
 ## Terminal commands {#shims}
 
-In a project folder, `php`, `composer`, `node`, `npm`, `python` and `pip` run the versions that project uses. `flo shims install` sets them up, and `flo shims remove` takes them away again.
+`php`, `composer`, `node` and the others use each project's versions in any terminal. See [Terminal commands](/docs/terminal/).

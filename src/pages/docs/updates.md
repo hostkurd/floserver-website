@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/Docs.astro
 title: Updates
-section: Help
 description: 'How FloServer checks for new versions, downloads and checks them, and updates itself.'
 lead: 'FloServer checks for a new version once a day and asks before installing it.'
 ---
@@ -20,4 +19,4 @@ Your projects stop for a moment. FloServer installs the new version, opens again
 
 ## Check now {#check}
 
-To check at once: [Settings → General](/docs/settings/#general) → **Check now**.
+To check at once: [Settings → General](/docs/settings/general/) → **Check now**.
