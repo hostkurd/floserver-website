@@ -1,0 +1,42 @@
+---
+import Base from './Base.astro';
+import { docsNav, release, company } from '../data/site.js';
+
+const { frontmatter, headings = [] } = Astro.props;
+const { title, description, section = 'Docs', lead } = frontmatter;
+const here = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+// Exactly one menu entry is the current page: the first whose href is this page with no hash.
+const currentHref = docsNav.flatMap((g) => g.items).find((i) => i.href === here)?.href;
+const toc = headings.filter((h) => h.depth === 2);
+---
+<Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs" wide>
+  <div class="wrap wrap-wide docs">
+    <article class="docs-main prose">
+      <p class="crumb">{section === 'Docs' ? 'Docs' : `Docs › ${section}`}</p>
+      <h1>{title}</h1>
+      {lead && <p class="leadp" set:html={lead}></p>}
+      <slot />
+      <div class="docs-foot">
+        <span>Docs for FloServer {release.version}</span>
+        <a href={`mailto:${company.email}?subject=${encodeURIComponent('Docs: ' + title)}`}>Something wrong here? Email {company.email}</a>
+      </div>
+    </article>
+    <aside class="docs-side">
+      <h2 class="menu-title">Docs menu</h2>
+      <nav aria-label="Docs">
+          {docsNav.map((g) => (
+            <>
+              <p>{g.title}</p>
+              {g.items.map((i) => <a href={i.href} aria-current={i.href === currentHref ? 'page' : undefined}>{i.title}</a>)}
+            </>
+          ))}
+      </nav>
+    </aside>
+    {toc.length > 1 && (
+      <aside class="docs-toc">
+        <p class="aside-title">On this page</p>
+        <nav aria-label="On this page">{toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}</nav>
+      </aside>
+    )}
+  </div>
+</Base>
