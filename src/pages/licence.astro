@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { release } from '../data/site.js';
+import eula from '../data/eula.json';
+
+// Headings are "1. This agreement" … "12. …": give each an id s1 … s12.
+const blocks = eula.filter((b) => b.type !== 'title');
+const title = eula.find((b) => b.type === 'title')?.text ?? 'FloServer End-User Licence Agreement';
+const idOf = (t) => 's' + (t.match(/^(\d+)\./)?.[1] ?? '');
+const headings = blocks.filter((b) => b.type === 'heading');
+const shortName = (t) => t.replace(/^\d+\.\s*/, '');
+---
+<Base title="Licence" description="The FloServer End-User Licence Agreement: free for personal and commercial use on any number of your computers." current="licence">
+  <div class="wrap page">
+    <aside>
+      <p class="aside-title">Licence agreement</p>
+      <nav class="aside-links" aria-label="Sections">
+        {headings.map((h) => <a href={`#${idOf(h.text)}`}>{h.text.match(/^\d+/)?.[0]}. {shortName(h.text)}</a>)}
+      </nav>
+    </aside>
+    <article class="prose">
+      <h1>{title}</h1>
+      <p class="meta">For FloServer {release.version} · The same text the setup shows</p>
+      <div class="summary">
+        <p>In short: FloServer is free to use on any number of your computers, for personal or commercial work. What you build is yours. You may not resell, redistribute or reverse engineer it. This summary isn't part of the agreement; the full text below is what counts.</p>
+      </div>
+      {blocks.map((b) =>
+        b.type === 'heading' ? <h2 id={idOf(b.text)}>{b.text}</h2>
+        : b.type === 'list' ? <ul>{b.items.map((i) => <li>{i}</li>)}</ul>
+        : <p>{b.text}</p>
+      )}
+    </article>
+  </div>
+</Base>

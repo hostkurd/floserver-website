@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/site.js';
+const updated = '6 November 2026';
+---
+<Base title="Privacy" description="FloServer collects no personal data, sends no telemetry and has no accounts. What it connects to, and what those servers see." current="privacy">
+  <div class="wrap page">
+    <aside>
+      <p class="aside-title">On this page</p>
+      <nav class="aside-links" aria-label="On this page">
+        <a href="#short">The short version</a>
+        <a href="#connections">What FloServer connects to</a>
+        <a href="#servers">What those servers see</a>
+        <a href="#website">This website</a>
+        <a href="#crash">Crash reports</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+    <article class="prose">
+      <h1>Privacy</h1>
+      <p class="meta">Last updated {updated} · Applies to FloServer and floserver.org</p>
+
+      <div id="short" class="summary">
+        <p style="font-weight:600;color:var(--text);margin-bottom:10px">The short version</p>
+        <ul>
+          <li>FloServer collects no personal data and sends no telemetry, usage statistics or crash reports.</li>
+          <li>There are no accounts.</li>
+          <li>Your projects, code and databases stay on your computer.</li>
+        </ul>
+      </div>
+
+      <h2 id="connections">What FloServer connects to</h2>
+      <p>FloServer goes online only to:</p>
+      <ul>
+        <li>download the signed list of runtimes and app updates from <code>cdn.floserver.org</code>, once a day and when you ask;</li>
+        <li>download the runtimes and templates you choose, from <code>cdn.floserver.org</code> or, if that fails, from each project's official site (such as windows.php.net or nodejs.org);</li>
+        <li>open links you click, such as floserver.org, in your browser.</li>
+      </ul>
+
+      <h2 id="servers">What those servers see</h2>
+      <p>Like any web server, they see your IP address and which file was requested. <code>cdn.floserver.org</code> and this website are served by Cloudflare, which handles that information under its own <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>. The official sites of PHP, Node.js and the other projects follow their own policies.</p>
+
+      <h2 id="website">This website</h2>
+      <p>floserver.org sets no cookies and has no analytics, ads or trackers. It loads nothing from other sites.</p>
+
+      <h2 id="crash">Crash reports</h2>
+      <p>FloServer sends none today. If they are ever added, they will be off until you turn them on.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>{company.name}, {company.address}. Email <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+      <p>The <a href="/licence/">licence agreement</a> says the same in section 7.</p>
+    </article>
+  </div>
+</Base>
