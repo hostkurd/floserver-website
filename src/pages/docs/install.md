@@ -18,7 +18,7 @@ FloServer opens with three short steps: **Language**, **Runtimes** and **Ready**
 
 ### Language
 
-Pick **Same as Windows**, English, العربية or کوردی (Sorani). The window changes at once. You can change it later in [Settings → General](/docs/settings/#general).
+Pick **Same as Windows**, English, <span lang="ar" dir="rtl">العربية</span> or <span lang="ckb" dir="rtl">کوردی</span> (Sorani). The window changes at once. You can change it later in [Settings → General](/docs/settings/#general).
 
 <figure><img src="/img/docs/first-run-language.png" width="960" height="640" loading="lazy" style="max-width:760px" alt="The Welcome to FloServer screen with a choice of language"><figcaption>Step 1: language.</figcaption></figure>
 

@@ -8,7 +8,7 @@ lead: 'Open Settings with the gear button at the top right of the projects windo
 
 ## The sections {#sections}
 
-<div class="table-box"><table>
+<div class="table-box stack" role="region" aria-label="Settings sections"><table>
 <tr><td><strong>General</strong></td><td>Language, theme, start with Windows, code editor, updates (Check now), licences and Remove FloServer…</td></tr>
 <tr><td><strong>Runtimes</strong></td><td>Download and remove versions, and choose the default for new projects.</td></tr>
 <tr><td><strong>PHP</strong></td><td>Extensions and php.ini values for each PHP version.</td></tr>
@@ -67,16 +67,16 @@ Where FloServer's web server listens, and HTTPS for your projects. Changes take 
 ### Web ports
 
 - **Automatic** (default): 80 and 443 when they're free, else 8080 and 8443.
-- **80 and 443**: addresses without a port, such as https://shop.localhost.
-- **8080 and 8443**: addresses with the port, such as https://shop.localhost:8443.
+- **80 and 443**: addresses without a port, such as `https://shop.localhost`.
+- **8080 and 8443**: addresses with the port, such as `https://shop.localhost:8443`.
 - **Other ports**: two port numbers of your own.
 
 The page shows which ports are in use now.
 
 ### HTTPS
 
-- **HTTPS for projects**: projects open at https://&lt;name&gt;.localhost, and their http addresses go there too.
-- **Shared sites over HTTPS**: only https://localhost/&lt;folder&gt;/ gets HTTPS; &lt;folder&gt;.localhost stays http.
+- **HTTPS for projects**: projects open at `https://<name>.localhost`, and their http addresses go there too.
+- **Shared sites over HTTPS**: only `https://localhost/<folder>/` gets HTTPS; `<folder>.localhost` stays http.
 
 HTTPS starts once Windows trusts FloServer's certificate authority.
 

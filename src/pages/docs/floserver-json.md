@@ -24,7 +24,7 @@ FloServer writes this file when you change a project's versions in the window or
 
 ## The keys {#keys}
 
-<div class="table-box"><table>
+<div class="table-box stack" tabindex="0" role="region" aria-label="floserver.json keys"><table>
 <tr><th>Key</th><th>What it holds</th></tr>
 <tr><td><code>php</code></td><td>A PHP version in quotes, such as <code>"8.2"</code> or <code>"8.2.27"</code>. Or <code>"newest"</code> for the newest installed PHP, or <code>false</code> for no PHP.</td></tr>
 <tr><td><code>node</code></td><td>A Node.js version in quotes, such as <code>"22"</code>.</td></tr>

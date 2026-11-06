@@ -11,6 +11,16 @@ const toc = headings.filter((h) => h.depth === 2);
 ---
 <Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs" wide>
   <div class="wrap wrap-wide docs">
+    <article class="docs-main prose">
+      <p class="crumb">{section === 'Docs' ? 'Docs' : `Docs › ${section}`}</p>
+      <h1>{title}</h1>
+      {lead && <p class="leadp" set:html={lead}></p>}
+      <slot />
+      <div class="docs-foot">
+        <span>Docs for FloServer {release.version}</span>
+        <a href={`mailto:${company.email}?subject=${encodeURIComponent('Docs: ' + title)}`}>Something wrong here? Email {company.email}</a>
+      </div>
+    </article>
     <aside class="docs-side">
       <h2 class="menu-title">Docs menu</h2>
       <nav aria-label="Docs">
@@ -22,16 +32,6 @@ const toc = headings.filter((h) => h.depth === 2);
           ))}
       </nav>
     </aside>
-    <article class="docs-main prose">
-      <p class="crumb">{section === 'Docs' ? 'Docs' : `Docs › ${section}`}</p>
-      <h1>{title}</h1>
-      {lead && <p class="leadp" set:html={lead}></p>}
-      <slot />
-      <div class="docs-foot">
-        <span>Docs for FloServer {release.version}</span>
-        <a href={`mailto:${company.email}?subject=${encodeURIComponent('Docs: ' + title)}`}>Something wrong here? Email {company.email}</a>
-      </div>
-    </article>
     {toc.length > 1 && (
       <aside class="docs-toc">
         <p class="aside-title">On this page</p>

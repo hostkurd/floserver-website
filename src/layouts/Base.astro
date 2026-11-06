@@ -8,8 +8,9 @@ interface Props {
   current?: 'home' | 'download' | 'docs' | 'privacy' | 'licence' | '';
   headerDownload?: boolean;
   wide?: boolean;
+  noindex?: boolean;
 }
-const { title, description, current = '', headerDownload = true, wide = false } = Astro.props;
+const { title, description, current = '', headerDownload = true, wide = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const fullTitle = title === 'FloServer' ? 'FloServer: a small local server for every project' : `${title} · FloServer`;
 const year = new Date().getFullYear();
@@ -21,7 +22,7 @@ const year = new Date().getFullYear();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{fullTitle}</title>
   <meta name="description" content={description}>
-  <link rel="canonical" href={canonical}>
+  {noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
