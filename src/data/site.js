@@ -7,9 +7,18 @@ export const release = {
   size: '3.9 MB',
 };
 
+const companyAddress = {
+  street: 'Darawaza City Mix Tower, Floor 5',
+  city: 'Sulaymaniyah',
+  region: 'Kurdistan Region',
+  country: 'Iraq',
+  countryCode: 'IQ',
+};
+
 export const company = {
   name: 'HostKurd',
-  address: 'Darawaza City Mix Tower, Floor 5, Sulaymaniyah, Kurdistan Region of Iraq',
+  address: `${companyAddress.street}, ${companyAddress.city}, ${companyAddress.region} of ${companyAddress.country}`,
+  addressParts: companyAddress,
   email: 'dev@floserver.org',
 };
 
