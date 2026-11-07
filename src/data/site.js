@@ -13,7 +13,7 @@ export const company = {
   email: 'dev@floserver.org',
 };
 
-// The slogan: hero, footer and the home page title.
+// The slogan: hero and footer.
 export const slogan = 'The lightweight local environment for developers.';
 
 export const siteUrl = 'https://floserver.org';

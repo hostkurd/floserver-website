@@ -12,7 +12,7 @@ interface Props {
 }
 const { title, description, current = '', headerDownload = true, wide = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
-const fullTitle = title === 'FloServer' ? `FloServer: ${slogan.replace(/\.$/, '').replace(/^The\b/, 'the')}` : `${title} · FloServer`;
+const fullTitle = title === 'FloServer' ? 'FloServer: lightweight local web development server for Windows' : `${title} · FloServer`;
 const year = new Date().getFullYear();
 ---
 <!doctype html>
