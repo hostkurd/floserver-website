@@ -13,6 +13,9 @@ export const company = {
   email: 'dev@floserver.org',
 };
 
+// The slogan: hero and footer.
+export const slogan = 'The lightweight local environment for developers.';
+
 export const siteUrl = 'https://floserver.org';
 
 // The docs menu: one entry per page, in reading order. Prev/next links and

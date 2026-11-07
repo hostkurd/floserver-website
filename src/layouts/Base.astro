@@ -1,6 +1,6 @@
 ---
 import '../styles/site.css';
-import { company, siteUrl } from '../data/site.js';
+import { company, siteUrl, slogan } from '../data/site.js';
 
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ interface Props {
 }
 const { title, description, current = '', headerDownload = true, wide = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
-const fullTitle = title === 'FloServer' ? 'FloServer: a small local server for every project' : `${title} · FloServer`;
+const fullTitle = title === 'FloServer' ? 'FloServer: lightweight local web development server for Windows' : `${title} · FloServer`;
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -56,6 +56,7 @@ const year = new Date().getFullYear();
     <div class="wrap foot-cols">
       <div class="about">
         <div class="foot-brand"><img src="/favicon.svg" alt="" width="22" height="22">FloServer</div>
+        <p class="foot-slogan">{slogan}</p>
         <p>By {company.name} · {company.address}</p>
       </div>
       <nav aria-label="Product"><strong>Product</strong><a href="/download/">Download</a><a href="/#features">Features</a><a href="/docs/">Docs</a><a href="/news/">What's new</a></nav>
