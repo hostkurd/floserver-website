@@ -1,6 +1,7 @@
 ---
 import '../styles/site.css';
 import { company, siteUrl } from '../data/site.js';
+import { toJsonLd } from '../lib/structured-data.js';
 
 interface Props {
   title: string;
@@ -9,8 +10,9 @@ interface Props {
   headerDownload?: boolean;
   wide?: boolean;
   noindex?: boolean;
+  jsonLd?: object[];
 }
-const { title, description, current = '', headerDownload = true, wide = false, noindex = false } = Astro.props;
+const { title, description, current = '', headerDownload = true, wide = false, noindex = false, jsonLd = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const fullTitle = title === 'FloServer' ? 'FloServer: a small local server for every project' : `${title} · FloServer`;
 const year = new Date().getFullYear();
@@ -34,6 +36,7 @@ const year = new Date().getFullYear();
   <meta property="og:url" content={canonical}>
   <meta property="og:image" content={`${siteUrl}/img/og.png`}>
   <meta name="twitter:card" content="summary_large_image">
+  {jsonLd.length > 0 && <script is:inline type="application/ld+json" set:html={toJsonLd(jsonLd)} />}
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>

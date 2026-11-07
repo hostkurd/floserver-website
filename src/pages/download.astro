@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { release } from '../data/site.js';
+import { organization, softwareApplication, breadcrumbs } from '../lib/structured-data.js';
 const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2v10M4.5 7.5L9 12l4.5-4.5M3 15.5h12" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-<Base title="Download" description={`Download FloServer ${release.version} for Windows 10 and 11. Free for personal and commercial use, no account.`} current="download" headerDownload={false}>
+<Base title="Download" description={`Download FloServer ${release.version} for Windows 10 and 11. Free for personal and commercial use, no account.`} current="download" headerDownload={false} jsonLd={[organization, softwareApplication, breadcrumbs([['Home', '/'], ['Download', '/download/']])]}>
   <section class="bg-pale">
     <div class="wrap split" style="padding-top:80px;padding-bottom:80px;gap:48px">
       <div style="flex:1 1 460px">
