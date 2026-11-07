@@ -14,7 +14,7 @@ const next = index >= 0 && index < docsPages.length - 1 ? docsPages[index + 1] :
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const crumbs = [['Home', '/'], ['Docs', '/docs/']];
 if (page && page.href.startsWith('/docs/settings/') && page.href !== '/docs/settings/') crumbs.push(['Settings', '/docs/settings/']);
-if (page && page.href !== '/docs/') crumbs.push([page.title, page.href]);
+if (page && page.href !== '/docs/') crumbs.push([page.href === '/docs/settings/' ? 'Settings' : page.title, page.href]);
 const section = page && page.href !== '/docs/' ? page.group : undefined;
 ---
 <Base title={title === 'FloServer docs' ? 'Docs' : `${title} · Docs`} description={description} current="docs" jsonLd={[breadcrumbs(crumbs)]}>

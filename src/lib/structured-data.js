@@ -11,10 +11,10 @@ export const organization = {
   email: company.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Darawaza City Mix Tower, Floor 5',
-    addressLocality: 'Sulaymaniyah',
-    addressRegion: 'Kurdistan Region',
-    addressCountry: 'IQ',
+    streetAddress: company.addressParts.street,
+    addressLocality: company.addressParts.city,
+    addressRegion: company.addressParts.region,
+    addressCountry: company.addressParts.countryCode,
   },
 };
 
