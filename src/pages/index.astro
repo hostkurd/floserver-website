@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { release } from '../data/site.js';
+import { release, slogan } from '../data/site.js';
 
 const tick = (fill, stroke) =>
   `<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="${fill}"/><path d="M5.5 10.3l3 3 6-6.6" stroke="${stroke}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -54,6 +54,7 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
       <div class="hero-text">
         <p class="pill">Version {release.version} beta · Windows 10 and 11</p>
         <h1>A small local server for every project.</h1>
+        <p class="slogan">{slogan}</p>
         <p class="intro">One native app runs PHP, MariaDB, Node.js, Python, nginx or Apache and Composer for each project, with its own versions, at its own <code>https://name.localhost</code> with trusted HTTPS.</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" href="/download/"><Fragment set:html={down} />Download for Windows</a>
