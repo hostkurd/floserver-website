@@ -14,19 +14,36 @@ const free = [
   'No trial and no time limit',
 ];
 
+// One icon per kind of runtime, so the grid reads by kind: languages,
+// databases, web servers and tools.
+const I = 'stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+const icon = {
+  code: `<path d="M8 7l-4 4 4 4M14 7l4 4-4 4M12.5 5l-3 12" ${I}/>`,
+  db: `<ellipse cx="11" cy="5.5" rx="6.5" ry="2.5" ${I}/><path d="M4.5 5.5v11c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5v-11M4.5 11c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5" ${I}/>`,
+  cache: `<path d="M11 3l8 4-8 4-8-4z" ${I}/><path d="M3 11l8 4 8-4M3 15l8 4 8-4" ${I}/>`,
+  server: `<rect x="3.5" y="4" width="15" height="6" rx="1.5" ${I}/><rect x="3.5" y="12" width="15" height="6" rx="1.5" ${I}/><path d="M7 7h.01M7 15h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>`,
+  braces: `<path d="M8 4c-2 0-2.5 1-2.5 2.5v2c0 1.2-.8 2-2 2.5 1.2.5 2 1.3 2 2.5v2C5.5 17 6 18 8 18M14 4c2 0 2.5 1 2.5 2.5v2c0 1.2.8 2 2 2.5-1.2.5-2 1.3-2 2.5v2c0 1.5-.5 2.5-2.5 2.5" ${I}/>`,
+  bolt: `<path d="M12.5 3L5 12.5h5.5L9.5 19 17 9.5h-5.5z" ${I}/>`,
+  prompt: `<rect x="3" y="4" width="16" height="14" rx="2" ${I}/><path d="M6.5 9l2.5 2-2.5 2M11 14h4" ${I}/>`,
+  box: `<path d="M11 3l7.5 4v8L11 19l-7.5-4V7z" ${I}/><path d="M3.5 7L11 11l7.5-4M11 11v8" ${I}/>`,
+  table: `<rect x="3.5" y="4.5" width="15" height="13" rx="1.5" ${I}/><path d="M3.5 9h15M3.5 13.2h15M9 9v8.5" ${I}/>`,
+  mail: `<rect x="3" y="5" width="16" height="12" rx="2" ${I}/><path d="M3.5 6l7.5 6 7.5-6" ${I}/>`,
+};
+// Colours by kind: languages blue, databases purple, web servers green, tools amber.
+const kind = { lang: ['#E6F0FB', '#0B5394'], data: ['#F1EAFB', '#6A35A8'], web: ['#E3F4E6', '#1B6B2A'], tool: ['#FDF1DE', '#8A4B00'] };
 const envs = [
-  ['php', '#E8EAF6', '#3949AB', 'PHP', '8.2 to 8.5, per project, with extensions and php.ini settings'],
-  ['DB', '#F3E5F5', '#7B1FA2', 'MariaDB', 'A database and user for each project'],
-  ['My', '#E0F2F1', '#00695C', 'MySQL', '8.4 LTS, for projects that need MySQL itself'],
-  ['Pg', '#E8EAF6', '#283593', 'PostgreSQL', 'A database and login for each project, pg_dump backups'],
-  ['R', '#FDECEA', '#B3261E', 'Redis', 'Through Garnet: caches, queues and sessions'],
-  ['N', '#E8F5E9', '#1B5E20', 'nginx and Apache', 'nginx serves every project; Apache for those that need .htaccess'],
-  ['JS', '#E8F5E9', '#2E7D32', 'Node.js', 'With npm; dev servers run behind the project address'],
-  ['B', '#FFF8E1', '#6D4C00', 'Bun and Deno', 'Or pick one of these as the JavaScript runtime'],
-  ['Py', '#E6EEF7', '#2F5F8F', 'Python', 'With pip and venv, for FastAPI, Django and Flask'],
-  ['C', '#FFF3E0', '#8A4B00', 'Composer', "PHP packages, using the project's PHP"],
-  ['pma', '#E3F2FD', '#1565C0', 'phpMyAdmin', 'Look after databases in the browser'],
-  ['@', '#F3E5F5', '#6A1B9A', 'Mailpit', 'Catches every email your projects send'],
+  ['code', 'lang', 'PHP', '8.2 to 8.5, per project, with extensions and php.ini settings'],
+  ['braces', 'lang', 'Node.js', 'With npm; dev servers run behind the project address'],
+  ['bolt', 'lang', 'Bun and Deno', 'Or pick one of these as the JavaScript runtime'],
+  ['prompt', 'lang', 'Python', 'With pip and venv, for FastAPI, Django and Flask'],
+  ['db', 'data', 'MariaDB', 'A database and user for each project'],
+  ['db', 'data', 'MySQL', '8.4 LTS, for projects that need MySQL itself'],
+  ['db', 'data', 'PostgreSQL', 'A database and login for each project, pg_dump backups'],
+  ['cache', 'data', 'Redis', 'Through Garnet: caches, queues and sessions'],
+  ['server', 'web', 'nginx and Apache', 'nginx serves every project; Apache for those that need .htaccess'],
+  ['box', 'tool', 'Composer', "PHP packages, using the project's PHP"],
+  ['table', 'tool', 'phpMyAdmin', 'Look after MariaDB and MySQL in the browser'],
+  ['mail', 'tool', 'Mailpit', 'Catches every email your projects send'],
 ];
 const templates = ['PHP app', 'FloCMS', 'Laravel', 'WordPress', 'Node app', 'Python app', 'Static site', 'Database only', 'MCP server (Python)', 'MCP server (PHP)'];
 
@@ -57,13 +74,21 @@ const features = [
   [`<circle cx="11" cy="11" r="8" ${S}/><path d="M3 11h16M11 3c2.5 2.5 2.5 13.5 0 16M11 3c-2.5 2.5-2.5 13.5 0 16" ${S}/>`,
     'English, Arabic and Kurdish', 'The app speaks English, Arabic and Kurdish (Sorani), right to left where it should. Works with screen readers.'],
 ];
+const faqs = [
+  ['Is FloServer really free?', 'Yes, for personal, study and commercial work, with every feature and up to 500 projects. There is no account, licence key or trial.'],
+  ['Does it need admin rights?', 'No. It installs for your Windows user, runs no Windows services and never edits the hosts file. Windows asks once whether to trust its local certificate.'],
+  ['Does it send anything about me?', 'No. FloServer has no telemetry and no account. It goes online only to check for updates and to download the runtimes you choose.'],
+  ['Can I keep my projects where they are?', 'Yes. Add any folder as a project. FloServer keeps its versions in a small floserver.json next to your code and never moves your files.'],
+  ['How do updates work?', 'FloServer checks once a day and asks before installing. Your projects, databases and settings stay as they are.'],
+  ['What about macOS and Linux?', 'They are planned. Windows 10 and 11 come first.'],
+];
 const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2v10M4.5 7.5L9 12l4.5-4.5M3 15.5h12" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
 <Base title="FloServer" description="A free, lightweight local web development server for Windows: PHP, MariaDB, MySQL, PostgreSQL, Redis, Node.js, Bun, Python, nginx or Apache per project, each with trusted HTTPS." current="home" headerDownload={false} jsonLd={[organization, website, softwareApplication]}>
   <section class="hero bg-pale">
     <div class="wrap">
       <div class="hero-text">
-        <p class="pill">Version {release.version} beta · Windows 10 and 11</p>
+        <a class="pill pill-link" href={`/news/${release.version}/`}>New in {release.version}: PostgreSQL, Redis, mail and AI tools</a>
         <h1>A small local server for every project.</h1>
         <p class="slogan">{slogan}</p>
         <p class="intro">One native app runs PHP, MariaDB, MySQL or PostgreSQL, Redis, Node.js, Bun, Deno, Python, nginx or Apache and Composer for each project, with its own versions, at its own <code>https://name.localhost</code> with trusted HTTPS.</p>
@@ -114,8 +139,8 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
       <h2 id="env-title" class="title">The stack you already use, ready in one place.</h2>
       <p class="lead">Download only what you need. Each project picks its own versions, and several versions can be installed side by side.</p>
       <ul class="envs">
-        {envs.map(([m, bg, fg, name, d]) => (
-          <li><span class="mark" aria-hidden="true" style={`background:${bg};color:${fg}`}>{m}</span><span><b>{name}</b><span class="d">{d}</span></span></li>
+        {envs.map(([ic, k, name, d]) => (
+          <li><span class="mark" aria-hidden="true" style={`background:${kind[k][0]};color:${kind[k][1]}`}><svg width="22" height="22" viewBox="0 0 22 22" set:html={icon[ic]}></svg></span><span><b>{name}</b><span class="d">{d}</span></span></li>
         ))}
       </ul>
       <div class="templates">
@@ -145,7 +170,7 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
       <p class="eyebrow">See it</p>
       <h2 id="see-title" class="title">A plain Windows app. Nothing to configure by hand.</h2>
       <div class="shots">
-        <figure><img src="/img/docs/new-project.png" width="1106" height="713" loading="lazy" alt="The New project screen with its template cards"><figcaption><b>New project.</b> Pick a template, a name and the versions.</figcaption></figure>
+        <figure><img src="/img/docs/window-database.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab, with Copy .env lines and Open in phpMyAdmin"><figcaption><b>A database per project.</b> Copy its .env lines, or open it in phpMyAdmin.</figcaption></figure>
         <figure><img src="/img/docs/settings-php.png" width="1026" height="713" loading="lazy" alt="Settings on the PHP page with extensions and php.ini values"><figcaption><b>PHP settings.</b> Extensions and php.ini values, per PHP version.</figcaption></figure>
       </div>
     </div>
@@ -178,6 +203,19 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
   "root": "public",
   "extensions": ["intl", "gd"]
 }`}</pre>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap faq-wrap">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2 id="faq-title" class="title">Good to know.</h2>
+        <p class="lead">Anything else? Email <a href="mailto:dev@floserver.org">dev@floserver.org</a>.</p>
+      </div>
+      <div class="faq">
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
     </div>
   </section>
 
