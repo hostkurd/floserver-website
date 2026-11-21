@@ -27,18 +27,23 @@ FloServer writes this file when you change a project's versions in the window or
 <tr><th>Key</th><th>What it holds</th></tr>
 <tr><td><code>php</code></td><td>A PHP version in quotes, such as <code>"8.2"</code> or <code>"8.2.27"</code>. Or <code>"newest"</code> for the newest installed PHP, or <code>false</code> for no PHP.</td></tr>
 <tr><td><code>node</code></td><td>A Node.js version in quotes, such as <code>"22"</code>.</td></tr>
+<tr><td><code>bun</code></td><td>A Bun version in quotes, such as <code>"1.3"</code>. A project has one JavaScript runtime: <code>node</code>, <code>bun</code> or <code>deno</code>. See <a href="/docs/javascript/">Node.js, Bun and Deno</a>.</td></tr>
+<tr><td><code>deno</code></td><td>A Deno version in quotes, such as <code>"2.9"</code>.</td></tr>
 <tr><td><code>python</code></td><td>A Python version in quotes, such as <code>"3.13"</code>.</td></tr>
-<tr><td><code>database</code></td><td>The database and its version, such as <code>"mariadb-11.4"</code>.</td></tr>
+<tr><td><code>database</code></td><td>The database and its version: <code>"mariadb-11.4"</code>, <code>"mysql-8.4"</code> or <code>"postgresql-18"</code>. See <a href="/docs/databases/">Databases</a>.</td></tr>
+<tr><td><code>redis</code></td><td><code>true</code> to use the shared <a href="/docs/redis/">Redis</a> server.</td></tr>
 <tr><td><code>web</code></td><td><code>"nginx"</code> (the default) or <code>"apache"</code>, for projects that need .htaccess.</td></tr>
 <tr><td><code>root</code></td><td>The folder inside the project that the web server serves, such as <code>"public"</code>. The default is the project folder itself.</td></tr>
 <tr><td><code>extensions</code></td><td>PHP extensions to turn on for this project, such as <code>["intl", "gd"]</code>. A leading <code>-</code> turns one off: <code>"-exif"</code>. opcache is always on.</td></tr>
 <tr><td><code>php_ini</code></td><td>php.ini values for this project, such as <code>{"memory_limit": "1024M"}</code>.</td></tr>
 <tr><td><code>command</code></td><td>One line that starts the project's own server, run in the project folder, such as <code>"npm run serve -- --port {port}"</code>. FloServer puts the port in place of <code>{port}</code>.</td></tr>
+<tr><td><code>mcp</code></td><td>For an MCP server project: the server's path, such as <code>"/mcp"</code>. See <a href="/docs/ai-tools/#templates">AI coding tools</a>.</td></tr>
 </table></div>
 
 ## From the terminal {#flo}
 
-- `flo use php 8.5`, `flo use node 22`, `flo use python 3.13`, `flo use mariadb 11.4` set a version.
+- `flo use php 8.5`, `flo use node 22`, `flo use bun 1.3`, `flo use deno 2.9`, `flo use python 3.13`, `flo use mariadb 11.4`, `flo use mysql 8.4`, `flo use postgresql 18` set a version. A new JavaScript runtime or database replaces the old one.
+- `flo use redis on` or `off`: the shared Redis server.
 - `flo use php none`, `newest` or `auto`: no PHP, always the newest, or PHP when the project has .php files.
 - `flo php <project> ext …` and `flo php <project> ini …` change the project's own PHP settings.
 

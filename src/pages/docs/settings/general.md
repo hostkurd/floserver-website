@@ -14,6 +14,10 @@ lead: 'Settings → General.'
 
 <figure><img src="/img/docs/settings-general.png" width="1026" height="713" loading="lazy" alt="Settings on the General page: language, theme, start with Windows, code editor, updates, licences and Remove FloServer"><figcaption>Settings → General.</figcaption></figure>
 
+## AI coding tools {#ai}
+
+The lines that connect Claude Code, Cursor, Claude Desktop and VS Code to `flo mcp`, each with **Copy**. See [AI coding tools](/docs/ai-tools/).
+
 ## Updates {#updates}
 
 **Check now** looks for a new version. FloServer also checks once a day and asks before updating. See [Updates](/docs/updates/).

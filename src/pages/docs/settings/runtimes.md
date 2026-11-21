@@ -1,8 +1,8 @@
 ---
 layout: ../../../layouts/Docs.astro
 title: Runtimes
-description: 'FloServer Settings → Runtimes: download and remove PHP, MariaDB, Node.js, Python and web server versions.'
-lead: 'Settings → Runtimes: the versions of PHP, MariaDB, Node.js, Python, the web servers and tools on this computer.'
+description: 'FloServer Settings → Runtimes: download and remove PHP, MariaDB, MySQL, PostgreSQL, Node.js, Bun, Deno, Python and web server versions.'
+lead: 'Settings → Runtimes: the versions of PHP, the databases, Node.js, Bun, Deno, Python, the web servers and tools on this computer.'
 ---
 
 ## Versions {#versions}

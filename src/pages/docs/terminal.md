@@ -7,7 +7,7 @@ lead: 'In a project folder, <code>php</code>, <code>composer</code>, <code>node<
 
 ## How it works {#how}
 
-The setup adds FloServer's command folder to your user's Path. When you run `php` in a project folder, FloServer picks that project's PHP; in another project, that one's.
+The setup adds FloServer's command folder to your user's Path: `php`, `composer`, `node`, `npm`, `npx`, `bun`, `bunx`, `deno`, `python` and `pip`. When you run `php` in a project folder, FloServer picks that project's PHP; in another project, that one's.
 
 ```bash
 cd C:\Users\you\FloServer\projects\my-shop
