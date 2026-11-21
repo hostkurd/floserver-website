@@ -23,7 +23,7 @@ FloServer starts the project's dev server on a free port and serves it at `https
 
 - **Node.js**: the `dev` script in package.json, or else its `start` script, through npm.
 - **Bun**: `bun run dev` when package.json has a `dev` script, else `bun --hot` on `index.ts`, `server.ts` or another usual entry file.
-- **Deno**: `deno task dev`.
+- **Deno**: `deno task dev` when deno.json has a `dev` task (or package.json a `dev` script), else `deno run --watch` on `main.ts`, `server.ts` or another usual entry file.
 
 Frameworks such as Vite and Next.js are given the port and address they should use. For anything else, set your own start line as `command` in [floserver.json](/docs/floserver-json/).
 

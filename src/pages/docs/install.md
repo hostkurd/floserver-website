@@ -30,7 +30,7 @@ When the setup is done, open FloServer and follow the [first start](/docs/first-
 
 The setup sees it and asks what to do:
 
-- **Update to the new version**, when yours is older. Your projects, databases and settings stay.
+- **Update to 0.9.0** (the setup's version), when yours is older. Your projects, databases and settings stay.
 - **Repair**, when it's the same version: puts back any missing or damaged program files.
 - **Remove FloServer**: opens FloServer's own uninstaller. See [Remove FloServer](/docs/remove/).
 
