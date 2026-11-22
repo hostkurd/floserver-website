@@ -23,10 +23,7 @@ With **Notices for new mail** on, a short notice at the bottom of FloServer show
 
 ## Settings → Mail {#settings}
 
-- **Addresses**: the inbox and the SMTP server, each with a copy button.
-- **Keep running**: off by default. Mailpit sleeps after 10 minutes without mail or an open inbox, and wakes on the next email. Emails are kept.
-- **Keep the last … emails**: older ones are deleted first.
-- **Send a test email**, and **Delete all emails…**.
+Addresses, PHP's mail, notices and how many emails to keep: [Settings → Mail](/docs/settings/mail/).
 
 ## From the terminal {#flo}
 

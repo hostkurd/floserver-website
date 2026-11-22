@@ -43,8 +43,12 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
   <li><a href="/docs/settings/runtimes/">Runtimes</a><span>Download and remove versions.</span></li>
   <li><a href="/docs/settings/php/">PHP</a><span>Extensions and php.ini for each PHP version.</span></li>
   <li><a href="/docs/settings/ports-https/">Ports & HTTPS</a><span>Web ports, HTTPS and the certificate authority.</span></li>
+  <li><a href="/docs/settings/database/">Database</a><span>The MariaDB, MySQL and PostgreSQL servers.</span></li>
+  <li><a href="/docs/settings/mail/">Mail</a><span>Mailpit's addresses, PHP's mail and notices.</span></li>
+  <li><a href="/docs/settings/redis/">Redis</a><span>Garnet's address, password and memory.</span></li>
   <li><a href="/docs/settings/apache/">Apache</a><span>Modules and your own httpd.conf lines.</span></li>
   <li><a href="/docs/settings/folders/">Folders</a><span>Where things live, and freeing space.</span></li>
+  <li><a href="/docs/settings/shared-sites/">Shared sites</a><span>The www folder's PHP, database and web server.</span></li>
 </ul>
 
 ## Projects and terminal {#projects-and-terminal}

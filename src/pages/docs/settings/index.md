@@ -13,9 +13,9 @@ lead: 'Open Settings with the gear button at the top right of the projects windo
 | [Runtimes](/docs/settings/runtimes/) | Download and remove versions, and choose the default for new projects |
 | [PHP](/docs/settings/php/) | Extensions and php.ini values for each PHP version |
 | [Ports & HTTPS](/docs/settings/ports-https/) | The web server's ports, HTTPS, and FloServer's certificate authority |
-| [Database](/docs/databases/#settings) | The MariaDB, MySQL and PostgreSQL servers the projects' databases run on |
-| [Mail](/docs/mail/#settings) | Mailpit, the mail catcher: addresses, PHP's mail, notices and how many emails to keep |
-| [Redis](/docs/redis/#settings) | Garnet, the shared Redis server: address, password, memory and keys |
+| [Database](/docs/settings/database/) | The MariaDB, MySQL and PostgreSQL servers the projects' databases run on |
+| [Mail](/docs/settings/mail/) | Mailpit, the mail catcher: addresses, PHP's mail, notices and how many emails to keep |
+| [Redis](/docs/settings/redis/) | Garnet, the shared Redis server: address, password, memory and keys |
 | [Apache](/docs/settings/apache/) | Apache's modules and your own httpd.conf lines |
 | [Folders](/docs/settings/folders/) | The projects folder, the www folder, the data folder, and clean up |
-| Shared sites | The www folder's PHP version, database and web server. See [Shared sites](/docs/shared-sites/) |
+| [Shared sites](/docs/settings/shared-sites/) | The www folder's PHP version, database and web server |

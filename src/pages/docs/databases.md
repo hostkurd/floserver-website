@@ -47,15 +47,7 @@ Neither is installed at first. Tick them on the [first start](/docs/first-start/
 
 ## Settings → Database {#settings}
 
-Settings → Database looks after the servers themselves. There's one server per engine and version, shared by the projects that use it, and each project still has its own database and user.
-
-- **Server**: Start, Stop or Restart it. A server sleeps when no project has used it for a while and wakes on the next connection, unless **Keep running** is on.
-- **Port**: automatic by default: 3306 for MariaDB and MySQL, 5432 for PostgreSQL, or the next free one. If you change it, copy the new lines from each project's Database tab.
-- **Your own settings**: **Add your own my.ini lines…** (MariaDB and MySQL) or **Add your own postgresql.conf lines…** (PostgreSQL). Your lines win over the fields, and the server uses them when it next starts. **Show the final…** opens what the server really uses.
-- **Root access** (MariaDB and MySQL) or **Superuser access** (PostgreSQL): the password of `root` or `postgres`, for database tools. Projects never use it.
-- **Open phpMyAdmin** or **Open Adminer**: the server in your browser, signed in as `root` or `postgres`.
-
-<div class="note" role="note"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l8 14H2z" stroke="#8A5A00" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14.2v.3" stroke="#8A5A00" stroke-width="1.8" stroke-linecap="round"/></svg><p>MySQL and PostgreSQL can't start when the path of your Windows user folder has letters outside English and Windows keeps no short name for it. Use MariaDB on that computer, or a Windows user whose folder name has English letters only.</p></div>
+The database servers themselves (start and stop, ports, your own settings, root and superuser access) have their own page: [Settings → Database](/docs/settings/database/).
 
 ## Backups {#backups}
 

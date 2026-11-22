@@ -63,8 +63,12 @@ export const docsNav = [
       { title: 'Runtimes', href: '/docs/settings/runtimes/' },
       { title: 'PHP', href: '/docs/settings/php/' },
       { title: 'Ports & HTTPS', href: '/docs/settings/ports-https/' },
+      { title: 'Database', href: '/docs/settings/database/' },
+      { title: 'Mail', href: '/docs/settings/mail/' },
+      { title: 'Redis', href: '/docs/settings/redis/' },
       { title: 'Apache', href: '/docs/settings/apache/' },
       { title: 'Folders', href: '/docs/settings/folders/' },
+      { title: 'Shared sites', href: '/docs/settings/shared-sites/' },
     ],
   },
   {

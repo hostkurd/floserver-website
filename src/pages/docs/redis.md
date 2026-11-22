@@ -22,10 +22,7 @@ Laravel's Redis cache, queues and sessions work with it.
 
 ## Settings → Redis {#settings}
 
-- **Address**: the server, usually `127.0.0.1:6379`, and its password. The password is always on, so web pages can't reach the server.
-- **Keep running**: off by default. Garnet sleeps after 10 minutes without connections. Its data is saved first and comes back when it wakes.
-- **Memory limit**, in MB.
-- **Data**: how many keys there are and how many projects use it. **Flush all…** deletes every key, for every project.
+Address, password, memory limit and keys: [Settings → Redis](/docs/settings/redis/).
 
 ## What Garnet doesn't do {#limits}
 

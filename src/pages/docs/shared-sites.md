@@ -11,11 +11,7 @@ Shared sites have their own row at the bottom of the project list, with a switch
 
 ## Settings {#settings}
 
-In **Settings → Shared sites**, choose the www folder and the PHP version, database and web server every shared site uses: Apache (so .htaccess works) or nginx.
-
-<figure><img src="/img/docs/settings-shared.png" width="1026" height="713" loading="lazy" alt="Settings on the Shared sites page: www folder, PHP, database and web server"><figcaption>Settings → Shared sites.</figcaption></figure>
-
-Everything starts by itself when a page is opened, and sleeps when idle.
+The www folder, PHP version, database and web server: [Settings → Shared sites](/docs/settings/shared-sites/).
 
 ## When to make it a project {#project}
 
