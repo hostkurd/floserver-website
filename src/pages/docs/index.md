@@ -6,7 +6,7 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
 ---
 
 <div class="cards" data-pagefind-ignore>
-  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
+  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="800"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
   <a class="card" href="/docs/window/"><span class="shot"><img src="/img/docs/window-general.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>The projects window</b><span class="d">Every project, its state and versions, and its panel.</span></span></a>
   <a class="card" href="/docs/project-menu/"><span class="shot"><img src="/img/docs/window-menu.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>Right-click menu</b><span class="d">Open, rename, back up, restore or remove a project.</span></span></a>
   <a class="card" href="/docs/settings/"><span class="shot"><img src="/img/docs/settings-runtimes.png" alt="" loading="lazy" width="1026" height="713"></span><span class="txt"><b>Settings</b><span class="d">Runtimes, PHP, databases, mail, Redis, ports and HTTPS, and more.</span></span></a>
@@ -26,7 +26,7 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
   <li><a href="/docs/window/">The projects window</a><span>The list, states, shared sites and the status bar.</span></li>
   <li><a href="/docs/project-panel/">Project panel</a><span>The General, PHP, Database and Log tabs.</span></li>
   <li><a href="/docs/project-menu/">Right-click menu</a><span>Everything you can do with a project.</span></li>
-  <li><a href="/docs/databases/">Databases</a><span>MariaDB, MySQL or PostgreSQL, a database per project, .env lines.</span></li>
+  <li><a href="/docs/databases/">Databases</a><span>MariaDB, MySQL or PostgreSQL, a database per project, phpMyAdmin and Adminer.</span></li>
   <li><a href="/docs/mail/">Mail (Mailpit)</a><span>Catch every email your projects send.</span></li>
   <li><a href="/docs/redis/">Redis</a><span>A shared Redis server for caches, queues and sessions.</span></li>
   <li><a href="/docs/javascript/">Node.js, Bun and Deno</a><span>JavaScript projects behind their own address.</span></li>

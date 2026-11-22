@@ -2,6 +2,39 @@
 // The app's "What's new" link can point there (the signed list's notes_url).
 export const releases = [
   {
+    version: '0.9.1',
+    date: '23 November 2026',
+    iso: '2026-11-23',
+    summary: 'Adminer for PostgreSQL, and fixes for 0.9.0.',
+    sections: [
+      {
+        title: 'New',
+        items: [
+          '<strong>Adminer for PostgreSQL</strong>: <strong>Open in Adminer</strong> on a PostgreSQL project\'s Database tab signs you in to its database in one click, at <code>adminer.localhost</code>. Settings → Database → PostgreSQL has <strong>Open Adminer</strong>, signed in as <code>postgres</code>. Download Adminer on the first start or in Settings → Runtimes. <a href="/docs/databases/#adminer">Databases</a>',
+        ],
+      },
+      {
+        title: 'Fixed',
+        items: [
+          'MySQL now starts reliably on Windows.',
+          'A MariaDB or MySQL server that FloServer started is no longer mistaken for another program on its port, and a failed start says which check failed.',
+          '<strong>Open in phpMyAdmin</strong> signs in to MySQL databases in one click, as it does for MariaDB.',
+          'PostgreSQL projects no longer offer phpMyAdmin, which only works with MariaDB and MySQL.',
+          'Installing Mailpit or phpMyAdmin also installs nginx, which serves them. The mail page says so when nginx is missing.',
+          'A project can\'t be renamed to <code>adminer</code> or <code>mail</code>: those addresses belong to Adminer and Mailpit, like <code>phpmyadmin</code>.',
+        ],
+      },
+      {
+        title: 'Good to know',
+        items: [
+          'Your projects, databases and settings are kept when you update from 0.9.0 or 0.1.0.',
+          'The setup isn\'t code-signed yet, so Windows SmartScreen may ask: click <strong>More info</strong>, then <strong>Run anyway</strong>.',
+          'Windows 10 and 11, 64-bit. macOS and Linux are planned.',
+        ],
+      },
+    ],
+  },
+  {
     version: '0.9.0',
     date: '21 November 2026',
     iso: '2026-11-21',

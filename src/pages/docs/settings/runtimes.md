@@ -11,6 +11,19 @@ Each runtime lists its versions: the default, what uses it, and **Download** or 
 
 <figure><img src="/img/docs/settings-runtimes.png" width="1026" height="713" loading="lazy" alt="Settings on the Runtimes page: PHP 8.5.12 installed as the default, 8.4, 8.3 and 8.2 to download; MariaDB 11.8 and 11.4; nginx and Apache"><figcaption>Settings → Runtimes.</figcaption></figure>
 
+## Tools {#tools}
+
+Below the web servers, **Tools** lists the browser tools and services that projects share:
+
+| Tool | What it's for |
+| --- | --- |
+| **phpMyAdmin** | MariaDB and MySQL databases in the browser, at `phpmyadmin.localhost` |
+| **Adminer** | PostgreSQL databases in the browser, at `adminer.localhost` |
+| **Mailpit** | The inbox for your projects' mail, at `mail.localhost`. See [Mail](/docs/mail/) |
+| **Garnet** | The shared Redis server. See [Redis](/docs/redis/) |
+
+Each row says where the tool opens. phpMyAdmin, Adminer and Mailpit are served by nginx, so installing one also installs nginx if it's missing.
+
 ## Default for new projects {#default}
 
 For PHP and MariaDB, **default for new projects** can be a fixed version or **Newest installed**.

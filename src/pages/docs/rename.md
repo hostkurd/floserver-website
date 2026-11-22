@@ -7,7 +7,7 @@ lead: 'Right-click a project and choose <strong>Rename…</strong>'
 
 ## The new name {#name}
 
-Letters a–z, digits and `-`. The address follows the new name, and the old address stops working.
+Letters a–z, digits and `-`. The address follows the new name, and the old address stops working. A project can't take the names `phpmyadmin`, `adminer` or `mail`: those addresses belong to phpMyAdmin, Adminer and Mailpit's inbox.
 
 <figure><img src="/img/docs/project-rename-dialog.png" width="498" height="351" loading="lazy" style="max-width:500px" alt="The Rename my-shop window with the new name shop-2026"><figcaption>Rename my-shop.</figcaption></figure>
 

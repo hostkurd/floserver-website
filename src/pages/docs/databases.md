@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Docs.astro
 title: Databases
-description: 'Each FloServer project gets its own database and user in MariaDB, MySQL or PostgreSQL. Connection settings, .env lines, phpMyAdmin and Settings → Database.'
+description: 'Each FloServer project gets its own database and user in MariaDB, MySQL or PostgreSQL. Connection settings, .env lines, phpMyAdmin, Adminer and Settings → Database.'
 lead: 'Every project that uses a database gets its own database and user, in MariaDB, MySQL or PostgreSQL.'
 ---
 
@@ -21,10 +21,29 @@ Download and remove versions in [Settings → Runtimes](/docs/settings/runtimes/
 
 Open a project's panel and choose **Database**. It shows the database's name, the address (such as `127.0.0.1:3306`) and the user.
 
-<figure><img src="/img/docs/window-database.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab, showing database my_shop with Copy .env lines and Open in phpMyAdmin buttons"><figcaption>The Database tab for my-shop.</figcaption></figure>
+<figure><img src="/img/docs/window-database.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab, showing database my_shop with Copy .env lines and Open in phpMyAdmin buttons"><figcaption>The Database tab for my-shop, a MariaDB project.</figcaption></figure>
 
 - **Copy .env lines** puts the connection settings on your clipboard, ready to paste into your project's `.env`. For PostgreSQL they say `pgsql`; Python projects also get a `DATABASE_URL`.
-- **Open in phpMyAdmin** opens a MariaDB or MySQL database in your browser. For PostgreSQL, connect a tool such as pgAdmin or DBeaver to the address shown.
+- **Open in phpMyAdmin** (MariaDB and MySQL) or **Open in Adminer** (PostgreSQL) opens the database in your browser, already signed in. See [below](#tools).
+
+## phpMyAdmin and Adminer {#tools}
+
+FloServer opens each database in a browser tool that suits its engine, signed in with the project's own user, so you never type a password.
+
+| Engine | Tool | Address |
+| --- | --- | --- |
+| MariaDB, MySQL | **phpMyAdmin** | `phpmyadmin.localhost` |
+| PostgreSQL | **Adminer** | `adminer.localhost` |
+
+Neither is installed at first. Tick them on the [first start](/docs/first-start/#runtimes), or download them in [Settings → Runtimes](/docs/settings/runtimes/#tools); until then the button says where to get it. They run on the newest PHP you have installed, so they don't hold on to a PHP version.
+
+### Adminer for PostgreSQL {#adminer}
+
+<figure><img src="/img/docs/window-database-postgresql.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab of the PostgreSQL project crm, showing database crm on 127.0.0.1:5432 with Copy .env lines and Open in Adminer buttons"><figcaption>The Database tab for crm, a PostgreSQL project.</figcaption></figure>
+
+- **Open in Adminer** on a project's Database tab signs in as the project's user, straight into its database.
+- **Open Adminer** in Settings → Database → PostgreSQL signs in as `postgres`, to look after the whole server.
+- Each sign-in link works once. In FloServer, Adminer only opens FloServer's own PostgreSQL servers; MariaDB and MySQL databases open in phpMyAdmin.
 
 ## Settings → Database {#settings}
 
@@ -34,6 +53,7 @@ Settings → Database looks after the servers themselves. There's one server per
 - **Port**: automatic by default: 3306 for MariaDB and MySQL, 5432 for PostgreSQL, or the next free one. If you change it, copy the new lines from each project's Database tab.
 - **Your own settings**: **Add your own my.ini lines…** (MariaDB and MySQL) or **Add your own postgresql.conf lines…** (PostgreSQL). Your lines win over the fields, and the server uses them when it next starts. **Show the final…** opens what the server really uses.
 - **Root access** (MariaDB and MySQL) or **Superuser access** (PostgreSQL): the password of `root` or `postgres`, for database tools. Projects never use it.
+- **Open phpMyAdmin** or **Open Adminer**: the server in your browser, signed in as `root` or `postgres`.
 
 <div class="note" role="note"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l8 14H2z" stroke="#8A5A00" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14.2v.3" stroke="#8A5A00" stroke-width="1.8" stroke-linecap="round"/></svg><p>MySQL and PostgreSQL can't start when the path of your Windows user folder has letters outside English and Windows keeps no short name for it. Use MariaDB on that computer, or a Windows user whose folder name has English letters only.</p></div>
 

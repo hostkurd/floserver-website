@@ -1,10 +1,10 @@
 // Facts used across the site. Change a release here, and in public/_redirects.
 export const release = {
-  version: '0.9.0',
-  date: '21 November 2026',
-  setupUrl: 'https://cdn.floserver.org/app/0.9.0/FloServer-Setup-0.9.0.exe',
-  setupFile: 'FloServer-Setup-0.9.0.exe',
-  size: '4.1 MB',
+  version: '0.9.1',
+  date: '23 November 2026',
+  setupUrl: 'https://cdn.floserver.org/app/0.9.1/FloServer-Setup-0.9.1.exe',
+  setupFile: 'FloServer-Setup-0.9.1.exe',
+  size: 'SIZE', // TODO: the 0.9.1 setup's size once it is on the CDN
 };
 
 const companyAddress = {

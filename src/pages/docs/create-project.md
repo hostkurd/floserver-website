@@ -7,7 +7,7 @@ lead: 'Click <strong>+ New project</strong> at the top of the projects window. I
 
 ## Pick a template {#templates}
 
-<figure><img src="/img/docs/new-project.png" width="1106" height="713" loading="lazy" alt="The New project screen with its template cards: PHP app, FloCMS, Laravel, WordPress, Node app, Python app, Static site, Database only and the two MCP server templates"><figcaption>Each card shows what the template sets up.</figcaption></figure>
+<figure><img src="/img/docs/new-project.png" width="1106" height="800" loading="lazy" alt="The New project screen with its template cards: PHP app, FloCMS, Laravel, WordPress, Node app, Python app, Static site, Database only and the two MCP server templates"><figcaption>Each card shows what the template sets up.</figcaption></figure>
 
 | Template | What you get |
 | --- | --- |
@@ -24,7 +24,7 @@ lead: 'Click <strong>+ New project</strong> at the top of the projects window. I
 
 ## Name, folder and versions {#name}
 
-Give the project a name: it becomes its address, `https://<name>.localhost`. New projects go in the projects folder, which you can change in [Settings → Folders](/docs/settings/folders/). Then check the versions it will use: PHP, the database (MariaDB, MySQL or PostgreSQL), the JavaScript runtime (Node.js, Bun or Deno) and Python, as the template needs.
+Give the project a name: it becomes its address, `https://<name>.localhost`. The names `phpmyadmin`, `adminer` and `mail` are kept for phpMyAdmin, Adminer and Mailpit's inbox. New projects go in the projects folder, which you can change in [Settings → Folders](/docs/settings/folders/). Then check the versions it will use: PHP, the database (MariaDB, MySQL or PostgreSQL), the JavaScript runtime (Node.js, Bun or Deno) and Python, as the template needs.
 
 ## A project you already have {#existing}
 

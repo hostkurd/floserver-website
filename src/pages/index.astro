@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { release, slogan } from '../data/site.js';
+import { templates } from '../data/templates.js';
 import { organization, website, softwareApplication } from '../lib/structured-data.js';
 
 const tick = (fill, stroke) =>
@@ -42,10 +43,9 @@ const envs = [
   ['cache', 'data', 'Redis', 'Through Garnet: caches, queues and sessions'],
   ['server', 'web', 'nginx and Apache', 'nginx serves every project; Apache for those that need .htaccess'],
   ['box', 'tool', 'Composer', "PHP packages, using the project's PHP"],
-  ['table', 'tool', 'phpMyAdmin', 'Look after MariaDB and MySQL in the browser'],
+  ['table', 'tool', 'phpMyAdmin and Adminer', 'Your databases in the browser, signed in with one click'],
   ['mail', 'tool', 'Mailpit', 'Catches every email your projects send'],
 ];
-const templates = ['PHP app', 'FloCMS', 'Laravel', 'WordPress', 'Node app', 'Python app', 'Static site', 'Database only', 'MCP server (Python)', 'MCP server (PHP)'];
 
 const S = 'stroke="#0364B5" stroke-width="1.6" fill="none"';
 const features = [
@@ -54,7 +54,7 @@ const features = [
   [`<rect x="4" y="10" width="14" height="9" rx="2" ${S}/><path d="M7.5 10V7a3.5 3.5 0 0 1 7 0v3" ${S}/>`,
     'Trusted local HTTPS', "Every project gets <code>https://name.localhost</code>. FloServer's own certificate authority only signs <code>localhost</code> names, trusted after one Windows prompt."],
   [`<ellipse cx="11" cy="5.5" rx="7" ry="2.5" ${S}/><path d="M4 5.5v11c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-11M4 11c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5" ${S}/>`,
-    'A database for each project', 'Its own database and user in MariaDB, MySQL or PostgreSQL. "Copy .env lines" puts the connection settings on your clipboard. phpMyAdmin included.'],
+    'A database for each project', 'Its own database and user in MariaDB, MySQL or PostgreSQL. "Copy .env lines" puts the connection settings on your clipboard. Open it in phpMyAdmin or, for PostgreSQL, Adminer, already signed in.'],
   [`<rect x="3" y="5" width="16" height="12" rx="2" ${S}/><path d="M3.5 6l7.5 6 7.5-6" ${S} stroke-linejoin="round"/>`,
     'Catch every email', 'Mailpit catches the mail your projects send, in an inbox at <code>mail.localhost</code>, with a notice for each new one. Nothing reaches a real mailbox.'],
   [`<path d="M11 3v4M11 15v4M3 11h4M15 11h4" ${S} stroke-linecap="round"/><circle cx="11" cy="11" r="3.5" ${S}/>`,
@@ -64,7 +64,7 @@ const features = [
   [`<path d="M15 4.5a7 7 0 1 0 2.5 9.5A5.5 5.5 0 0 1 15 4.5z" ${S} stroke-linejoin="round"/>`,
     'Projects sleep when idle', 'PHP pools stop after a quiet spell and wake on the next request, so projects you aren\'t using cost almost nothing.'],
   [`<rect x="3" y="3" width="7" height="7" rx="1.5" ${S}/><rect x="12" y="3" width="7" height="7" rx="1.5" ${S}/><rect x="3" y="12" width="7" height="7" rx="1.5" ${S}/><path d="M15.5 12.5v6M12.5 15.5h6" stroke="#0364B5" stroke-width="1.6"/>`,
-    'Start from a template', 'PHP app, FloCMS, WordPress, Laravel, Node app, Python app, MCP server, static site or database only. Or keep a shared <code>www</code> folder like htdocs.'],
+    'Start from a template', 'Ten templates, from an empty PHP app to Laravel, WordPress, FloCMS and your own MCP server. Or keep a shared <code>www</code> folder like htdocs.'],
   [`<rect x="3" y="4" width="16" height="14" rx="2" ${S}/><path d="M6.5 9l2.5 2-2.5 2M11 14h4" ${S} stroke-linecap="round"/>`,
     "Your terminal, the project's versions", "<code>php</code>, <code>composer</code>, <code>node</code>, <code>npm</code>, <code>python</code> and <code>pip</code> use the versions of the project you're in. Plus the <code>flo</code> command line."],
   [`<path d="M4 7h14v11H4zM7 4h8v3" ${S} stroke-linejoin="round"/><path d="M11 10v5M8.8 12.8L11 15l2.2-2.2" ${S} stroke-linecap="round"/>`,
@@ -88,7 +88,7 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
   <section class="hero bg-pale">
     <div class="wrap">
       <div class="hero-text">
-        <a class="pill pill-link" href={`/news/${release.version}/`}>New in {release.version}: PostgreSQL, Redis, mail and AI tools</a>
+        <a class="pill pill-link" href={`/news/${release.version}/`}>New in {release.version}: Adminer for PostgreSQL</a>
         <h1>A small local server for every project.</h1>
         <p class="slogan">{slogan}</p>
         <p class="intro">One native app runs PHP, MariaDB, MySQL or PostgreSQL, Redis, Node.js, Bun, Deno, Python, nginx or Apache and Composer for each project, with its own versions, at its own <code>https://name.localhost</code> with trusted HTTPS.</p>
@@ -143,10 +143,20 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
           <li><span class="mark" aria-hidden="true" style={`background:${kind[k][0]};color:${kind[k][1]}`}><svg width="22" height="22" viewBox="0 0 22 22" set:html={icon[ic]}></svg></span><span><b>{name}</b><span class="d">{d}</span></span></li>
         ))}
       </ul>
-      <div class="templates">
-        <span>Templates:</span>
-        <ul>{templates.map((t) => <li>{t}</li>)}</ul>
+      <div class="tpl-head">
+        <h3 id="templates-title">Start from a template</h3>
+        <p>Each one sets up the folder, the versions and, where it needs one, the database. <a href="/docs/create-project/#templates">About templates</a></p>
       </div>
+      <ul class="tpls" aria-labelledby="templates-title">
+        {templates.map((t) => (
+          <li>
+            <span class="tpl-mark" aria-hidden="true" style={`background:${t.bg};color:${t.fg}`}>{t.mark}</span>
+            <b>{t.title}</b>
+            <span class="tpl-d">{t.description}</span>
+            <span class="tpl-chips">{t.chips.map((c) => <span>{c}</span>)}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -170,7 +180,7 @@ const down = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
       <p class="eyebrow">See it</p>
       <h2 id="see-title" class="title">A plain Windows app. Nothing to configure by hand.</h2>
       <div class="shots">
-        <figure><img src="/img/docs/window-database.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab, with Copy .env lines and Open in phpMyAdmin"><figcaption><b>A database per project.</b> Copy its .env lines, or open it in phpMyAdmin.</figcaption></figure>
+        <figure><img src="/img/docs/window-database-postgresql.png" width="1106" height="713" loading="lazy" alt="The project panel on the Database tab of a PostgreSQL project, with Copy .env lines and Open in Adminer"><figcaption><b>A database per project.</b> Copy its .env lines, or open it in phpMyAdmin or Adminer.</figcaption></figure>
         <figure><img src="/img/docs/settings-php.png" width="1026" height="713" loading="lazy" alt="Settings on the PHP page with extensions and php.ini values"><figcaption><b>PHP settings.</b> Extensions and php.ini values, per PHP version.</figcaption></figure>
       </div>
     </div>
