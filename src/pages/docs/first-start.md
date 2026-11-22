@@ -13,7 +13,7 @@ Pick **Same as Windows**, English, <span lang="ar" dir="rtl">العربية</spa
 
 ## 2. Runtimes {#runtimes}
 
-Choose what to download now: PHP, MariaDB, Node.js, Composer and Mailpit are ticked; others, such as MySQL, PostgreSQL, Bun, Deno, Python, Redis (Garnet), Apache, phpMyAdmin and Adminer, are there to tick. nginx is always included. Every file is checked against FloServer's signed list before it's used. You can go on to the next step while the downloads keep going, even if you close the window.
+Choose what to download now: PHP, MariaDB, Node.js, Composer and Mailpit are ticked; Garnet (Redis), Python, MySQL, Bun, Deno, phpMyAdmin, Adminer and Apache are there to tick. nginx is always included. PostgreSQL isn't offered here: download it later in Settings → Runtimes. Every file is checked against FloServer's signed list before it's used. You can go on to the next step while the downloads keep going, even if you close the window.
 
 Other versions, and removing these, are in [Settings → Runtimes](/docs/settings/runtimes/). A project that needs something missing offers to download it.
 

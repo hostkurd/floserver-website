@@ -21,7 +21,7 @@ export const releases = [
           '<strong>Open in phpMyAdmin</strong> signs in to MySQL databases in one click, as it does for MariaDB.',
           'PostgreSQL projects no longer offer phpMyAdmin, which only works with MariaDB and MySQL.',
           'Installing Mailpit or phpMyAdmin also installs nginx, which serves them. The mail page says so when nginx is missing.',
-          'A project can\'t be renamed to <code>adminer</code> or <code>mail</code>: those addresses belong to Adminer and Mailpit, like <code>phpmyadmin</code>.',
+          'A project can\'t be renamed to <code>adminer</code>: that address belongs to Adminer, like <code>phpmyadmin</code> and <code>mail</code>.',
         ],
       },
       {
