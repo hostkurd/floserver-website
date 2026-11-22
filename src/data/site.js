@@ -4,7 +4,7 @@ export const release = {
   date: '23 November 2026',
   setupUrl: 'https://cdn.floserver.org/app/0.9.1/FloServer-Setup-0.9.1.exe',
   setupFile: 'FloServer-Setup-0.9.1.exe',
-  size: 'SIZE', // TODO: the 0.9.1 setup's size once it is on the CDN
+  size: '4.2 MB',
 };
 
 const companyAddress = {
