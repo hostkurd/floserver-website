@@ -9,7 +9,7 @@ lead: 'Settings → Runtimes: the versions of PHP, the databases, Node.js, Bun, 
 
 Each runtime lists its versions: the default, what uses it, and **Download** or **Remove**. A version something still uses can't be removed until nothing needs it.
 
-<figure><img src="/img/docs/settings-runtimes.png" width="1026" height="843" loading="lazy" alt="Settings on the Runtimes page: PHP 8.5.13 installed as the default with 8.4, 8.3 and 8.2 to download; MariaDB 11.8.10 as the default and 11.4 to download; MySQL 8.4; PostgreSQL 18.7 as the default, 19.0 and 17.12 to download"><figcaption>Settings → Runtimes.</figcaption></figure>
+<figure><img src="/img/docs/settings-runtimes.png" width="1026" height="843" loading="lazy" alt="Settings on the Runtimes page: PHP 8.5.13 installed as the default with 8.4, 8.3 and 8.2 to download; MariaDB 11.8.10 as the default and 11.4 to download; MySQL 8.4.13 as the default; PostgreSQL 18.7 as the default, 19.0 and 17.12 to download"><figcaption>Settings → Runtimes.</figcaption></figure>
 
 ## Tools {#tools}
 

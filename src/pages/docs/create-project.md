@@ -28,11 +28,11 @@ Give the project a name: it becomes its address, `https://<name>.localhost`. The
 
 ## If making a project is slow {#slow}
 
-Templates that run Composer, such as Laravel and FloCMS, write thousands of files: the packages and their autoload files. Windows Defender scans each one as it's written, so making the project can take a while.
+Templates that run Composer, such as Laravel and FloCMS, write thousands of files: the packages and their autoload files. Downloading them takes time, and Windows Defender scans each file as it's written, so making the project can take a while.
 
 <figure><img src="/img/docs/new-project-making.png" width="1106" height="713" loading="lazy" alt="Making laravel…: the New project screen showing Composer's output while it creates a Laravel project"><figcaption>Making a Laravel project. Composer's output shows as it runs.</figcaption></figure>
 
-<div class="note" role="note"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l8 14H2z" stroke="#8A5A00" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14.2v.3" stroke="#8A5A00" stroke-width="1.8" stroke-linecap="round"/></svg><p><strong>Important:</strong> add your projects folder to Windows Defender's exclusions, and making projects (and running <code>composer install</code> or <code>npm install</code> in them) is much quicker. Files in that folder are no longer scanned, so keep only your own code there.</p></div>
+<div class="note" role="note"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l8 14H2z" stroke="#8A5A00" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14.2v.3" stroke="#8A5A00" stroke-width="1.8" stroke-linecap="round"/></svg><p><strong>Important:</strong> add your projects folder to Windows Defender's exclusions, and making projects (and running <code>composer install</code> or <code>npm install</code> in them) is much quicker. Files in that folder are no longer scanned, including the packages Composer and npm download, so exclude only a folder you use for projects. Windows asks for administrator permission to add an exclusion.</p></div>
 
 1. Find your projects folder in [Settings → Folders](/docs/settings/folders/), usually `C:\Users\<you>\FloServer\projects`.
 2. Open **Windows Security** → **Virus & threat protection**.

@@ -14,12 +14,12 @@ The **Inbox** (`mail.localhost`) and the **SMTP server** your projects send to (
 ## Options {#options}
 
 - **Send PHP's mail to Mailpit**: on by default. `mail()`, `wp_mail` and PHPMailer go to the inbox. Your own lines in custom.ini still win.
-- **Notices for new mail**: a short notice at the bottom of FloServer with the subject and an Open button.
+- **Notices for new mail**: on by default. A short notice at the bottom of FloServer with the subject and an Open button.
 - **Keep running**: off by default. Mailpit sleeps after 10 minutes without mail or an open inbox, and wakes on the next email. Emails are kept.
 
 ## Emails {#emails}
 
-- **Keep the last … emails**: older ones are deleted first.
+- **Keep the last … emails**: 500 by default; older ones are deleted first.
 - **Send a test email**, and **Delete all emails…**.
 
 If Mailpit isn't installed, the page has an **Install** button. More about the inbox and sending mail: [Mail (Mailpit)](/docs/mail/).

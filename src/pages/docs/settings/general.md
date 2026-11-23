@@ -9,8 +9,9 @@ lead: 'Settings → General.'
 
 - **Language**: English, Arabic or Kurdish (Sorani), or the same as Windows.
 - **Theme**: by default, the same as Windows.
-- **Start FloServer when I sign in to Windows**
-- **Code editor**: what **Open in VS Code** and the code button open. **Automatic** picks VS Code.
+- **Starting with Windows**: **Start FloServer when I sign in to Windows**. Its service starts too, so your projects are ready when you are. Choose **Open the window** or **Start in the tray**.
+- **Closing the window**: **Keep FloServer running in the tray** (your projects stay on; quit from the tray icon's menu) or **Quit FloServer** (stops FloServer and every project).
+- **Code editor**: what **Open in VS Code** and the code button open. **Automatic** picks VS Code when it's installed, else the first found of Cursor, VSCodium, Sublime Text and PhpStorm. Or pick one, or **Choose program…**.
 
 <figure><img src="/img/docs/settings-general.png" width="1026" height="713" loading="lazy" alt="Settings on the General page: language, theme and starting with Windows"><figcaption>Settings → General.</figcaption></figure>
 
