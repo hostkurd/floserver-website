@@ -11,7 +11,7 @@ The programs, the Start menu shortcut, `flo` on your Path, Start with Windows, a
 
 ## You choose {#choose}
 
-- **Downloaded runtimes and caches** (ticked): PHP, MariaDB, Node.js, Python and the web servers. They can be downloaded again.
+- **Downloaded runtimes and caches** (ticked): PHP, the database servers, Node.js, Python, the web servers and the rest. They can be downloaded again.
 - **Databases** (not ticked): every project's database. This can't be undone.
 - **The projects folder** (not ticked): moved to the Recycle Bin. Projects you added from other folders are never touched.
 
@@ -19,7 +19,7 @@ The programs, the Start menu shortcut, `flo` on your Path, Start with Windows, a
 
 ## From Windows Settings {#windows}
 
-Windows Settings → Apps → FloServer → Uninstall opens FloServer's own uninstaller with the same choices, then shows what was kept.
+Windows Settings → Apps → FloServer → Uninstall, or **Remove FloServer** in the setup, opens FloServer's own uninstaller with the same choices, then shows what was kept.
 
 <figure><img src="/img/docs/uninstall-choose.png" width="880" height="580" loading="lazy" style="max-width:760px" alt="The Remove FloServer uninstaller with the Always removed list and the Also delete choices"><figcaption>The uninstaller.</figcaption></figure>
 

@@ -7,7 +7,7 @@ lead: 'Right-click a project for <strong>Back up as zip…</strong> and <strong>
 
 ## Back up a project {#backup}
 
-A backup is one .zip with the project's files and, if you tick it, its database as `database.sql`. It goes to `Documents\FloServer Backups` unless you choose another place.
+A backup is one .zip with the project's files and, if you tick it, its database as `database.sql`. That works for MariaDB, MySQL and PostgreSQL; a PostgreSQL backup only goes back into a PostgreSQL project (see [Databases](/docs/databases/#backups)). It goes to `Documents\FloServer Backups` unless you choose another place.
 
 Folders that can be installed again, such as `vendor` (Composer) and `node_modules` (npm), are left out by default. Only the folders the project has are listed; a Python project shows `.venv`.
 

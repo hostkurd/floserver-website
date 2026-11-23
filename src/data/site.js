@@ -1,10 +1,10 @@
 // Facts used across the site. Change a release here, and in public/_redirects.
 export const release = {
-  version: '0.1.0',
-  date: '6 November 2026',
-  setupUrl: 'https://cdn.floserver.org/app/0.1.0/FloServer-Setup-0.1.0.exe',
-  setupFile: 'FloServer-Setup-0.1.0.exe',
-  size: '3.9 MB',
+  version: '0.9.1',
+  date: '23 November 2026',
+  setupUrl: 'https://cdn.floserver.org/app/0.9.1/FloServer-Setup-0.9.1.exe',
+  setupFile: 'FloServer-Setup-0.9.1.exe',
+  size: '4.2 MB',
 };
 
 const companyAddress = {
@@ -45,7 +45,11 @@ export const docsNav = [
       { title: 'The projects window', href: '/docs/window/' },
       { title: 'Project panel', href: '/docs/project-panel/' },
       { title: 'Right-click menu', href: '/docs/project-menu/' },
-      { title: 'Databases and phpMyAdmin', href: '/docs/databases/' },
+      { title: 'Databases', href: '/docs/databases/' },
+      { title: 'Mail (Mailpit)', href: '/docs/mail/' },
+      { title: 'Redis', href: '/docs/redis/' },
+      { title: 'Node.js, Bun and Deno', href: '/docs/javascript/' },
+      { title: 'AI coding tools (MCP)', href: '/docs/ai-tools/' },
       { title: 'Shared sites (www)', href: '/docs/shared-sites/' },
       { title: 'Backup and restore', href: '/docs/backup/' },
       { title: 'Rename a project', href: '/docs/rename/' },
@@ -59,8 +63,12 @@ export const docsNav = [
       { title: 'Runtimes', href: '/docs/settings/runtimes/' },
       { title: 'PHP', href: '/docs/settings/php/' },
       { title: 'Ports & HTTPS', href: '/docs/settings/ports-https/' },
+      { title: 'Database', href: '/docs/settings/database/' },
+      { title: 'Mail', href: '/docs/settings/mail/' },
+      { title: 'Redis', href: '/docs/settings/redis/' },
       { title: 'Apache', href: '/docs/settings/apache/' },
       { title: 'Folders', href: '/docs/settings/folders/' },
+      { title: 'Shared sites', href: '/docs/settings/shared-sites/' },
     ],
   },
   {

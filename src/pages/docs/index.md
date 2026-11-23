@@ -6,10 +6,10 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
 ---
 
 <div class="cards" data-pagefind-ignore>
-  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
+  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="793"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
   <a class="card" href="/docs/window/"><span class="shot"><img src="/img/docs/window-general.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>The projects window</b><span class="d">Every project, its state and versions, and its panel.</span></span></a>
   <a class="card" href="/docs/project-menu/"><span class="shot"><img src="/img/docs/window-menu.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>Right-click menu</b><span class="d">Open, rename, back up, restore or remove a project.</span></span></a>
-  <a class="card" href="/docs/settings/"><span class="shot"><img src="/img/docs/settings-runtimes.png" alt="" loading="lazy" width="1026" height="713"></span><span class="txt"><b>Settings</b><span class="d">Runtimes, PHP, ports and HTTPS, Apache, folders and more.</span></span></a>
+  <a class="card" href="/docs/settings/"><span class="shot"><img src="/img/docs/settings-runtimes.png" alt="" loading="lazy" width="1026" height="843"></span><span class="txt"><b>Settings</b><span class="d">Runtimes, PHP, databases, mail, Redis, ports and HTTPS, and more.</span></span></a>
 </div>
 
 ## Getting started {#getting-started}
@@ -17,7 +17,7 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
 <ul class="guides" data-pagefind-ignore>
   <li><a href="/docs/install/">Install FloServer</a><span>Requirements, the setup and SmartScreen.</span></li>
   <li><a href="/docs/first-start/">First start</a><span>Language, runtimes and trusting local HTTPS.</span></li>
-  <li><a href="/docs/create-project/">Create a project</a><span>Eight templates, an existing folder, or a backup.</span></li>
+  <li><a href="/docs/create-project/">Create a project</a><span>Ten templates, an existing folder, or a backup.</span></li>
 </ul>
 
 ## Using the app {#using-the-app}
@@ -26,7 +26,11 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
   <li><a href="/docs/window/">The projects window</a><span>The list, states, shared sites and the status bar.</span></li>
   <li><a href="/docs/project-panel/">Project panel</a><span>The General, PHP, Database and Log tabs.</span></li>
   <li><a href="/docs/project-menu/">Right-click menu</a><span>Everything you can do with a project.</span></li>
-  <li><a href="/docs/databases/">Databases and phpMyAdmin</a><span>A database per project, .env lines, phpMyAdmin.</span></li>
+  <li><a href="/docs/databases/">Databases</a><span>MariaDB, MySQL or PostgreSQL, a database per project, phpMyAdmin and Adminer.</span></li>
+  <li><a href="/docs/mail/">Mail (Mailpit)</a><span>Catch every email your projects send.</span></li>
+  <li><a href="/docs/redis/">Redis</a><span>A shared Redis server for caches, queues and sessions.</span></li>
+  <li><a href="/docs/javascript/">Node.js, Bun and Deno</a><span>JavaScript projects behind their own address.</span></li>
+  <li><a href="/docs/ai-tools/">AI coding tools (MCP)</a><span>Let AI tools see your projects; build your own MCP server.</span></li>
   <li><a href="/docs/shared-sites/">Shared sites (www)</a><span>Every folder in one www folder, at localhost.</span></li>
   <li><a href="/docs/backup/">Backup and restore</a><span>A project as a zip with its database.</span></li>
   <li><a href="/docs/rename/">Rename a project</a><span>A new name and address, optionally a new folder.</span></li>
@@ -35,12 +39,16 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
 ## Settings {#settings}
 
 <ul class="guides" data-pagefind-ignore>
-  <li><a href="/docs/settings/general/">General</a><span>Language, theme, updates, remove FloServer.</span></li>
+  <li><a href="/docs/settings/general/">General</a><span>Language, theme, AI coding tools, updates, remove FloServer.</span></li>
   <li><a href="/docs/settings/runtimes/">Runtimes</a><span>Download and remove versions.</span></li>
   <li><a href="/docs/settings/php/">PHP</a><span>Extensions and php.ini for each PHP version.</span></li>
   <li><a href="/docs/settings/ports-https/">Ports & HTTPS</a><span>Web ports, HTTPS and the certificate authority.</span></li>
+  <li><a href="/docs/settings/database/">Database</a><span>The MariaDB, MySQL and PostgreSQL servers.</span></li>
+  <li><a href="/docs/settings/mail/">Mail</a><span>Mailpit's addresses, PHP's mail and notices.</span></li>
+  <li><a href="/docs/settings/redis/">Redis</a><span>Garnet's address, password and memory.</span></li>
   <li><a href="/docs/settings/apache/">Apache</a><span>Modules and your own httpd.conf lines.</span></li>
   <li><a href="/docs/settings/folders/">Folders</a><span>Where things live, and freeing space.</span></li>
+  <li><a href="/docs/settings/shared-sites/">Shared sites</a><span>The www folder's PHP, database and web server.</span></li>
 </ul>
 
 ## Projects and terminal {#projects-and-terminal}

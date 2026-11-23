@@ -9,10 +9,17 @@ lead: 'Settings → General.'
 
 - **Language**: English, Arabic or Kurdish (Sorani), or the same as Windows.
 - **Theme**: by default, the same as Windows.
-- **Start FloServer when I sign in to Windows**
-- **Code editor**: what **Open in VS Code** and the code button open. **Automatic** picks VS Code.
+- **Starting with Windows**: **Start FloServer when I sign in to Windows**. Its service starts too, so your projects are ready when you are. Choose **Open the window** or **Start in the tray**.
+- **Closing the window**: **Keep FloServer running in the tray** (your projects stay on; quit from the tray icon's menu) or **Quit FloServer** (stops FloServer and every project).
+- **Code editor**: what **Open in VS Code** and the code button open. **Automatic** picks VS Code when it's installed, else the first found of Cursor, VSCodium, Sublime Text and PhpStorm. Or pick one, or **Choose program…**.
 
-<figure><img src="/img/docs/settings-general.png" width="1026" height="713" loading="lazy" alt="Settings on the General page: language, theme, start with Windows, code editor, updates, licences and Remove FloServer"><figcaption>Settings → General.</figcaption></figure>
+<figure><img src="/img/docs/settings-general.png" width="1026" height="713" loading="lazy" alt="Settings on the General page: language, theme and starting with Windows"><figcaption>Settings → General.</figcaption></figure>
+
+## AI coding tools {#ai}
+
+<figure><img src="/img/docs/settings-general-ai.png" width="1026" height="843" loading="lazy" alt="Settings → General further down: the code editor, Updates (FloServer 0.9.1, checked today), AI coding tools with the lines to copy for Claude Code, Cursor, Claude Desktop and VS Code, and About FloServer"><figcaption>Further down: code editor, updates, AI coding tools and About.</figcaption></figure>
+
+The lines that connect Claude Code, Cursor, Claude Desktop and VS Code to `flo mcp`, each with **Copy**. See [AI coding tools](/docs/ai-tools/).
 
 ## Updates {#updates}
 

@@ -14,7 +14,7 @@ lead: 'Settings → Ports &amp; HTTPS: where FloServer''s web server listens, an
 
 The page shows which ports are in use now.
 
-<figure><img src="/img/docs/settings-ports.png" width="1026" height="713" loading="lazy" alt="Settings on the Ports and HTTPS page: web ports set to Automatic, HTTPS for projects on, shared sites over HTTPS off, and a Trust button for the certificate authority"><figcaption>Settings → Ports &amp; HTTPS. Here the certificate authority isn't trusted yet, so projects open on http.</figcaption></figure>
+<figure><img src="/img/docs/settings-ports.png" width="1026" height="843" loading="lazy" alt="Settings on the Ports and HTTPS page: web ports set to Automatic, in use 80 and 443; HTTPS for projects on, shared sites over HTTPS off; the certificate authority trusted by Windows, with Remove and Open the certificate"><figcaption>Settings → Ports &amp; HTTPS, with the certificate authority trusted.</figcaption></figure>
 
 ## HTTPS {#https}
 

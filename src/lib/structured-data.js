@@ -32,7 +32,7 @@ export const softwareApplication = {
   '@id': appId,
   name: 'FloServer',
   description:
-    'A free, lightweight local web development server for Windows: PHP, MariaDB, Node.js, Python, nginx or Apache per project, each with trusted HTTPS.',
+    'A free, lightweight local web development server for Windows: PHP, MariaDB, MySQL, PostgreSQL, Redis, Node.js, Bun, Python, nginx or Apache per project, each with trusted HTTPS.',
   url: `${siteUrl}/`,
   image: `${siteUrl}/img/og.png`,
   screenshot: `${siteUrl}/img/docs/window-general.png`,

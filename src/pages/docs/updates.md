@@ -20,3 +20,5 @@ Your projects stop for a moment. FloServer installs the new version, opens again
 ## Check now {#check}
 
 To check at once: [Settings → General](/docs/settings/general/) → **Check now**.
+
+You can also download the newest setup from the [Download page](/download/), run it and choose **Update**. See [If FloServer is already installed](/docs/install/#installed).
