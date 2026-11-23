@@ -7,6 +7,8 @@ lead: "Settings → Mail looks after Mailpit, the mail catcher. Nothing leaves t
 
 ## Addresses {#addresses}
 
+<figure><img src="/img/docs/settings-mail.png" width="1026" height="843" loading="lazy" alt="Settings on the Mail page: Mailpit 1.34.0 running; the inbox at https://mail.localhost with Open inbox; the SMTP server 127.0.0.1:1025; the three options switched on; keep the last 500 emails; Send a test email and Delete all emails"><figcaption>Settings → Mail.</figcaption></figure>
+
 The **Inbox** (`mail.localhost`) and the **SMTP server** your projects send to (no login, no encryption), each with a copy button. **Open inbox** opens it in your browser.
 
 ## Options {#options}

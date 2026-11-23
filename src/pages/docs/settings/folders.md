@@ -11,7 +11,7 @@ lead: 'Settings → Folders: where FloServer makes projects, serves shared sites
 - **www folder for shared sites**: every folder in it opens at `localhost/<folder>/`. It's the same setting as in [Shared sites](/docs/shared-sites/).
 - **FloServer's data folder**: runtimes, logs, databases and settings. It can't be moved, and the page shows how much space it uses.
 
-<figure><img src="/img/docs/settings-folders.png" width="1026" height="713" loading="lazy" alt="Settings on the Folders page: projects folder, www folder, data folder and the clean up buttons"><figcaption>Settings → Folders.</figcaption></figure>
+<figure><img src="/img/docs/settings-folders.png" width="1026" height="843" loading="lazy" alt="Settings on the Folders page: projects folder, www folder, data folder and the clean up buttons"><figcaption>Settings → Folders.</figcaption></figure>
 
 ## Clean up {#cleanup}
 

@@ -9,11 +9,13 @@ lead: 'Settings → Runtimes: the versions of PHP, the databases, Node.js, Bun, 
 
 Each runtime lists its versions: the default, what uses it, and **Download** or **Remove**. A version something still uses can't be removed until nothing needs it.
 
-<figure><img src="/img/docs/settings-runtimes.png" width="1026" height="713" loading="lazy" alt="Settings on the Runtimes page: PHP 8.5.12 installed as the default, 8.4, 8.3 and 8.2 to download; MariaDB 11.8 and 11.4; nginx and Apache"><figcaption>Settings → Runtimes.</figcaption></figure>
+<figure><img src="/img/docs/settings-runtimes.png" width="1026" height="843" loading="lazy" alt="Settings on the Runtimes page: PHP 8.5.13 installed as the default with 8.4, 8.3 and 8.2 to download; MariaDB 11.8.10 as the default and 11.4 to download; MySQL 8.4; PostgreSQL 18.7 as the default, 19.0 and 17.12 to download"><figcaption>Settings → Runtimes.</figcaption></figure>
 
 ## Tools {#tools}
 
 Below the web servers, **Tools** lists the browser tools and services that projects share:
+
+<figure><img src="/img/docs/settings-runtimes-tools.png" width="819" height="251" loading="lazy" alt="The Tools group in Settings → Runtimes: phpMyAdmin 5.2.3, opens at https://phpmyadmin.localhost; Adminer 6.3.1, opens at https://adminer.localhost; Mailpit 1.34.0 and Garnet (Redis) 2.2.13; each installed, with a Remove button"><figcaption>Tools in Settings → Runtimes.</figcaption></figure>
 
 | Tool | What it's for |
 | --- | --- |

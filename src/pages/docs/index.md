@@ -6,10 +6,10 @@ lead: 'How to use every part of FloServer: the window, its settings and the comm
 ---
 
 <div class="cards" data-pagefind-ignore>
-  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="800"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
+  <a class="card" href="/docs/install/"><span class="shot"><img src="/img/docs/new-project.png" alt="" loading="lazy" width="1106" height="793"></span><span class="txt"><b>Get started</b><span class="d">Install FloServer, pick your runtimes and create your first project.</span></span></a>
   <a class="card" href="/docs/window/"><span class="shot"><img src="/img/docs/window-general.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>The projects window</b><span class="d">Every project, its state and versions, and its panel.</span></span></a>
   <a class="card" href="/docs/project-menu/"><span class="shot"><img src="/img/docs/window-menu.png" alt="" loading="lazy" width="1106" height="713"></span><span class="txt"><b>Right-click menu</b><span class="d">Open, rename, back up, restore or remove a project.</span></span></a>
-  <a class="card" href="/docs/settings/"><span class="shot"><img src="/img/docs/settings-runtimes.png" alt="" loading="lazy" width="1026" height="713"></span><span class="txt"><b>Settings</b><span class="d">Runtimes, PHP, databases, mail, Redis, ports and HTTPS, and more.</span></span></a>
+  <a class="card" href="/docs/settings/"><span class="shot"><img src="/img/docs/settings-runtimes.png" alt="" loading="lazy" width="1026" height="843"></span><span class="txt"><b>Settings</b><span class="d">Runtimes, PHP, databases, mail, Redis, ports and HTTPS, and more.</span></span></a>
 </div>
 
 ## Getting started {#getting-started}

@@ -7,6 +7,8 @@ lead: "Settings → Redis looks after Garnet, the shared Redis-compatible server
 
 ## Server and options {#options}
 
+<figure><img src="/img/docs/settings-redis.png" width="1026" height="843" loading="lazy" alt="Settings on the Redis page: Garnet 2.2.13 asleep; server 127.0.0.1:6379 and its password with Copy buttons; Keep running off; memory limit 256 MB; 0 keys and Flush all"><figcaption>Settings → Redis.</figcaption></figure>
+
 - **Address**: the server, usually `127.0.0.1:6379`, and its password. The password is always on, so web pages can't reach the server.
 - **Keep running**: off by default. Garnet sleeps after 10 minutes without connections. Its data is saved first and comes back when it wakes.
 - **Memory limit**, in MB.

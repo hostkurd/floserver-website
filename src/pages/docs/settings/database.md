@@ -7,6 +7,8 @@ lead: "Settings → Database looks after the database servers. There's one serve
 
 ## The server {#server}
 
+<figure><img src="/img/docs/settings-database.png" width="1026" height="843" loading="lazy" alt="Settings on the Database page, MariaDB tab, version MariaDB 11.8.10: the server sleeping on port 3306 with Start, Stop and Restart; my.ini fields such as innodb_buffer_pool_size; Root access with Open phpMyAdmin and the root password"><figcaption>Settings → Database, MariaDB tab. The PostgreSQL tab has Open Adminer in the same place.</figcaption></figure>
+
 - **Server**: Start, Stop or Restart it. A server sleeps when no project has used it for a while and wakes on the next connection, unless **Keep running** is on.
 - **Port**: automatic by default: 3306 for MariaDB and MySQL, 5432 for PostgreSQL, or the next free one. If you change it, copy the new lines from each project's Database tab.
 - **Your own settings**: **Add your own my.ini lines…** (MariaDB and MySQL) or **Add your own postgresql.conf lines…** (PostgreSQL). Your lines win over the fields, and the server uses them when it next starts. **Show the final…** opens what the server really uses.

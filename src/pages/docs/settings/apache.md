@@ -9,7 +9,7 @@ lead: 'Settings → Apache: the shared Apache that serves projects using .htacce
 
 Turn Apache's modules on or off, and find one by name. Ticked grey ones are FloServer's own: its config needs them, so they stay on. Grey empty ones don't apply behind nginx.
 
-<figure><img src="/img/docs/settings-apache.png" width="1026" height="713" loading="lazy" alt="Settings on the Apache page: a grid of Apache modules with tick boxes and the httpd.conf section"><figcaption>Settings → Apache.</figcaption></figure>
+<figure><img src="/img/docs/settings-apache.png" width="1026" height="843" loading="lazy" alt="Settings on the Apache page: a grid of Apache modules with tick boxes and the httpd.conf section"><figcaption>Settings → Apache.</figcaption></figure>
 
 ## httpd.conf {#httpd}
 

@@ -9,7 +9,7 @@ lead: 'Settings → PHP: the defaults for every project and shared sites on one 
 
 Pick the PHP version at the top right, then tick the extensions you want. Find one by name with the search box. opcache is always on.
 
-<figure><img src="/img/docs/settings-php.png" width="1026" height="713" loading="lazy" alt="Settings on the PHP page: extension tick boxes for PHP 8.5.12 and php.ini fields such as memory_limit and upload_max_filesize"><figcaption>Settings → PHP.</figcaption></figure>
+<figure><img src="/img/docs/settings-php.png" width="1026" height="843" loading="lazy" alt="Settings on the PHP page: extension tick boxes for PHP 8.5.13 and php.ini fields such as memory_limit and upload_max_filesize"><figcaption>Settings → PHP.</figcaption></figure>
 
 ## php.ini {#ini}
 
